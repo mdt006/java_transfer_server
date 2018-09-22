@@ -1,0 +1,27 @@
+1.先把数据库表建好，然后插入init脚本和demo
+2.环境搭建的话，需要redis，zookeeper集群，mysql
+
+3.部署时先部署提供者，再部署消费者
+
+
+
+
+各个项目说明
+1.transfer-support  基础提供者，jar包，所有提供者都依赖此jar，部署必须现部署此jar报
+
+
+2.transfer-common 通用jar包，其他jar都引入此jar，此jar提供公用方法和接口
+
+3.transfer-scan   定时任务jar，用于失败转账确认，防止额度丢失
+
+4.transfer-api-http  web接口项目，为消费者，提供接口供其他项目调用，比如提供ag登录，转账接口，此项目为前端php，后台等对外提供接口
+
+5.transfer-lotto-fenfen   提供分分彩（官方彩）登录接口 jar包
+
+6.transfer-lotto-xiaoyu    提供经典彩登录接口 jar包
+
+7.transfer-money   提供钱包交换接口与DS无缝登录接口
+
+8.transfer-pmg  提供新的mg（WIN88-鼎盛(PT)(MGEUR)）接口
+
+

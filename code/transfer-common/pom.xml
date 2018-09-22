@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+		<groupId>com.ds</groupId>
+		<artifactId>transfer-parent</artifactId>
+		<version>1.0.0</version>
+  </parent>
+  
+  <groupId>com.ds.transfer.common</groupId>
+  <artifactId>transfer-common</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+  <properties>
+		<env>beta</env>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+  </properties>
+	
+	<repositories>
+		<repository>
+			<id>public-maven</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<distributionManagement>
+		<repository>
+			<id>maven-releases</id>
+			<url>http://maven.${env}.ds.com/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+	
+</project>

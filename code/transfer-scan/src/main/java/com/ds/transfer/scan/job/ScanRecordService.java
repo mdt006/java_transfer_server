@@ -64,7 +64,7 @@ public class ScanRecordService extends CommonTransferService {
 	@Resource(name = "dsTransferService")
 	private TransferService<?> dsTransferService;
 
-	@Resource(name = "h8TransferService")
+	/*@Resource(name = "h8TransferService")
 	private TransferService<?> h8TransferService;
 
 	@Resource(name = "ogTransferService")
@@ -83,7 +83,7 @@ public class ScanRecordService extends CommonTransferService {
 	private TransferService<?> sgsTransferService;
 	
 	@Resource(name = "kkwTransferService")
-	private TransferService<?> kkwTransferService;
+	private TransferService<?> kkwTransferService;*/
 
 	@Resource(name = "transferRecordService")
 	private TransferRecordService transferRecordService;

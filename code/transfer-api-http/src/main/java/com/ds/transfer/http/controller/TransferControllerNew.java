@@ -86,7 +86,9 @@ public class TransferControllerNew extends BaseController {
 	@Resource(name = "bbinTransferServiceImpl")
 	private BbinTransferService<BbinApiUserEntity> bbinTransferService;
 
-	@Resource(name = "h8TransferServiceImpl")
+	@Resource(name = "transferRecordDetailServiceImpl")
+	private TransferRecordDetailService transferRecordDetailService;
+	/*@Resource(name = "h8TransferServiceImpl")
 	private H8TransferService<H8ApiUserEntity> h8TransferService;
 
 	@Resource(name = "ogTransferServiceImpl")
@@ -123,7 +125,7 @@ public class TransferControllerNew extends BaseController {
 	private SgsTransferService<SgsApiUserEntity> sgsTransferService;
 	
 	@Resource(name="kkwTransferServiceImpl")
-	private KkwTransferService<KkwApiUserEntity> kkwTransferService;
+	private KkwTransferService<KkwApiUserEntity> kkwTransferService;*/
 	
 	@Resource(name = "moneyCenter")
 	private TransferService<?> moneyCenterService;
@@ -558,7 +560,7 @@ public class TransferControllerNew extends BaseController {
 					logger.info("bbin 电子游戏 return result = {}", result);
 					return result;
 				}
-			} else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
+			} /*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
 				String loginChannel = request.getParameter("loginChannel");
 				String line = request.getParameter("line");// 线路(1, 2, …)
@@ -779,7 +781,7 @@ public class TransferControllerNew extends BaseController {
 				result = this.kkwTransferService.login(loginParam);
 				logger.info("KKW 大厅 return username={},gameType={} result = {}",username,gameType,result);
 				return result;
-			}else {
+			}*/else {
 				resultMap.put(STATUS, PARAM_FORMAT_ERROR);
 				resultMap.put(MESSAGE, "live isn't process way");
 			}
@@ -957,14 +959,14 @@ public class TransferControllerNew extends BaseController {
 		if (usernames.contains(",")) {
 			String[] usernameArr = usernames.split(",");
 			for (String username : usernameArr) {
-				result = this.h8TransferService.changeOddType(entity, username, maxCreditPerBet, maxCreditPerMatch);
+				//result = this.h8TransferService.changeOddType(entity, username, maxCreditPerBet, maxCreditPerMatch);
 				resultMap = JSONUtils.json2Map(result);
 				if (!SUCCESS.equals(resultMap.get(STATUS))) {
 					buffer.append("username=").append(username).append("[reason=").append(resultMap.get(MESSAGE)).append("]").append(";");
 				}
 			}
 		} else {
-			result = this.h8TransferService.changeOddType(entity, usernames, maxCreditPerBet, maxCreditPerMatch);
+			//result = this.h8TransferService.changeOddType(entity, usernames, maxCreditPerBet, maxCreditPerMatch);
 		}
 		if (buffer.length() > 0) {
 			buffer.append(" are not success , query the reason why failure!");

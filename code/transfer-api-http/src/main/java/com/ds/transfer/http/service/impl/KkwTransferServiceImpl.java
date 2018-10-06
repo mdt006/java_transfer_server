@@ -31,7 +31,7 @@ import com.ds.transfer.record.entity.KkwApiUserEntity;
  * @author leo
  * @date 2018年7月11日
  */
-@Service("kkwTransferServiceImpl")
+/*@Service("kkwTransferServiceImpl")*/
 public class KkwTransferServiceImpl extends CommonTransferService implements KkwTransferService<KkwApiUserEntity> {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	

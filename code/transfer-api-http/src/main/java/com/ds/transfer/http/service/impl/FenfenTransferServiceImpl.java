@@ -14,7 +14,7 @@ import com.ds.transfer.common.vo.UserParam;
 import com.ds.transfer.http.service.FenfenTransferService;
 import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 
-@Service("fenfenTransferServiceImpl")
+/*@Service("fenfenTransferServiceImpl")*/
 public class FenfenTransferServiceImpl extends CommonTransferService implements FenfenTransferService<Object> {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());

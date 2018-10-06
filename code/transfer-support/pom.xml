@@ -29,4 +29,12 @@
 	</dependency>
   	
   </dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>resource</directory>
+				<targetPath>${project.build.directory}/classes/resource</targetPath>
+			</resource>
+		</resources>
+	</build>
 </project>

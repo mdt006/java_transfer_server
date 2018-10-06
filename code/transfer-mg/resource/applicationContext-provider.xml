@@ -10,10 +10,9 @@
 	<dubbo:application organization="transfer" name="transfer" owner="jackson" />
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
-	<dubbo:registry address="zookeeper://10.10.230.39:2181?backup=10.10.230.39:2182,10.10.230.39:2183" 
-                file="${user.home}/dubbo-service-file/dubbo.cache" />
+	<dubbo:registry address="${zookeeper.address}" file="${dubbo.cache}/dubbo-service-file/transfer/dubbo-mg.cache" />
 
-     <dubbo:protocol name="dubbo" port="20888" host="${host}"/>
+     <dubbo:protocol name="dubbo" port="20888" />
         
 	<!-- 声明需要暴露服务的接口 -->
 	<dubbo:service interface="com.ds.transfer.common.service.TransferService" ref="transferService" 

@@ -32,7 +32,7 @@ import com.ds.transfer.record.entity.LmgApiUserEntity;
  * @author leo
  * @date 2018年2月23日
  */
-@Service("lmgTransferServiceImpl")
+/*@Service("lmgTransferServiceImpl")*/
 public class LmgTransferServiceImpl extends CommonTransferService implements LmgTransferService<LmgApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

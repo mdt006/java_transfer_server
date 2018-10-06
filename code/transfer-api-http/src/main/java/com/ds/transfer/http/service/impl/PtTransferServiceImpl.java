@@ -27,7 +27,7 @@ import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 import com.ds.transfer.record.entity.ApiInfoEntity;
 import com.ds.transfer.record.entity.PtApiUserEntity;
 
-@Service("ptTransferServiceImpl")
+/*@Service("ptTransferServiceImpl")*/
 public class PtTransferServiceImpl extends CommonTransferService implements PtTransferService<PtApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

@@ -13,7 +13,7 @@
 	<dubbo:application name="transfer-api-http" owner="jackson" />
 	
 	<!-- 使用zookeeper注册中心发现服务地址 -->
-	<dubbo:registry address="${zookeeper}" />
+	<dubbo:registry address="${zookeeper.address}" />
 
 	<!-- 生成远程服务代理,可以和本地bean一样使用DubboDemo retries : 重发属性(default 3) -->
 	<dubbo:reference id="agTransfer" interface="com.ds.transfer.common.service.TransferService" 
@@ -28,43 +28,43 @@
 		group="bbin" version="1.0.0" owner="jackson" timeout="60000" />
 	
 	<!-- h8体育 -->
-	<dubbo:reference id="h8Transfer" interface="com.ds.transfer.common.service.TransferService" 
+	<!--<dubbo:reference id="h8Transfer" interface="com.ds.transfer.common.service.TransferService"
 		group="h8" version="1.0.0" owner="jackson" timeout="60000" />
 	
-	<!-- og视讯 -->
+	&lt;!&ndash; og视讯 &ndash;&gt;
 	<dubbo:reference id="ogTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="og" version="1.0.0" owner="jackson" timeout="60000" />
 		
-	<!-- mg电子 -->
+	&lt;!&ndash; mg电子 &ndash;&gt;
 	<dubbo:reference id="mgTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="mg" version="1.0.0" owner="jackson" timeout="60000" />
 		
-	<!-- 分分彩 -->
+	&lt;!&ndash; 分分彩 &ndash;&gt;
 	<dubbo:reference id="fenfenLotto" interface="com.ds.transfer.common.service.TransferService" 
 		group="lotto_fenfen" version="1.0.0" owner="jackson" timeout="60000" />
 		
-	<!-- 经典彩 -->
+	&lt;!&ndash; 经典彩 &ndash;&gt;
 	<dubbo:reference id="xiaoyuLotto" interface="com.ds.transfer.common.service.TransferService" 
 		group="lotto_xiaoyu" version="1.0.0" owner="jackson" timeout="60000" />
 		
-	<!-- pt 电子 -->
+	&lt;!&ndash; pt 电子 &ndash;&gt;
 	<dubbo:reference id="ptTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="pt" version="1.0.0" owner="jackson" timeout="60000" />
 
-	<!-- lmg -->
+	&lt;!&ndash; lmg &ndash;&gt;
 	<dubbo:reference id="lmgTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="lmg" version="1.0.0" owner="jackson" timeout="60000" />
 		
-	<!-- ky -->
+	&lt;!&ndash; ky &ndash;&gt;
 	<dubbo:reference id="kyTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="ky" version="1.0.0" owner="jackson" timeout="60000" />
 	
-	<!-- sgs -->
+	&lt;!&ndash; sgs &ndash;&gt;
 	<dubbo:reference id="sgsTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="sgs" version="1.0.0" owner="jackson" timeout="60000" />
 	
-	<!-- kkw -->
+	&lt;!&ndash; kkw &ndash;&gt;
 	<dubbo:reference id="kkwTransfer" interface="com.ds.transfer.common.service.TransferService" 
-		group="kkw" version="1.0.0" owner="jackson" timeout="60000" />
+		group="kkw" version="1.0.0" owner="jackson" timeout="60000" />-->
 		
 </beans>

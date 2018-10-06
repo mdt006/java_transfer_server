@@ -28,8 +28,8 @@
 	<build>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
-                <targetPath>${project.build.directory}/classes</targetPath>
+                <directory>resource</directory>
+                <targetPath>${project.build.directory}/classes/resource</targetPath>
             </resource>
         </resources>
         <plugins>

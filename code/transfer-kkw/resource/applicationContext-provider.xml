@@ -12,8 +12,8 @@
    <dubbo:application organization="transfer" name="transfer" owner="jackson" />
  
   <!-- 使用zookeeper注册中心暴露服务地址 -->
-  <dubbo:registry address="${zookeeper}"  file="${user.home}/dubbo-service-file/transfer/dubbo-kkw.cache" />
-  	<dubbo:protocol name="dubbo" port="20892" host="${host}"/>
+	<dubbo:registry address="${zookeeper.address}" file="${dubbo.cache}/dubbo-service-file/transfer/dubbo-kkw.cache" />
+  	<dubbo:protocol name="dubbo" port="20892"/>
   	<!-- 声明需要暴露服务的接口 -->
   	<dubbo:service interface="com.ds.transfer.common.service.TransferService" ref="transferService"
  		group="kkw" version="1.0.0" timeout="10000" retries="0" owner="jackson" />

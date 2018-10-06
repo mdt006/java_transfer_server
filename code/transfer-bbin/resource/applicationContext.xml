@@ -11,13 +11,10 @@
 	<import resource="applicationContext-provider.xml" />
 
 	<!-- 使用外部的配置文件 -->
-	<context:property-placeholder
-		location="resource/jdbc.properties,file:C:\test\dubbo.properties" />
-	<bean id="dataSource"
-		class="com.alibaba.druid.pool.DruidDataSource">
+	<context:property-placeholder location="file:F:\project\transfer_server\code\jdbc.properties" />
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}"></property>
-		<property name="driverClassName"
-			value="${jdbc.driverClassName}"></property>
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
 
@@ -43,8 +40,7 @@
 	</bean>
 
 	<!-- redis config start -->
-	<bean id="connectionFactory"
-		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
 		<property name="usePool" value="true"></property>
 		<property name="hostName" value="${redis.host}" />
 		<property name="port" value="${redis.port}" />

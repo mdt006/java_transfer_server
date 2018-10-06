@@ -17,7 +17,7 @@ import com.ds.transfer.common.vo.UserParam;
 import com.ds.transfer.http.service.XiaoyuTransferService;
 import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 
-@Service("xiaoyuTransferServiceImpl")
+/*@Service("xiaoyuTransferServiceImpl")*/
 public class XiaoyuTransferServiceImpl extends CommonTransferService implements XiaoyuTransferService<Object> {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

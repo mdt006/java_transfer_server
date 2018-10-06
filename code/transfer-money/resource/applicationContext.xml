@@ -12,7 +12,7 @@
 	<import resource="applicationContext-provider.xml" />
 
 	<!-- 使用外部的配置文件 -->
-	<context:property-placeholder location="resource/*.properties,file:C:\test\dubbo.properties" />
+	<context:property-placeholder location="file:F:\project\transfer_server\code\jdbc.properties,file:F:\project\transfer_server\code\transfer-money\resource\money.properties" />
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
@@ -26,7 +26,7 @@
 		<!-- 最大并发连接数 -->
 		<property name="maxActive" value="100" />
 		<property name="filters" value="config,stat" />
-		<property name="connectionProperties" value="config.decrypt=false" />
+		<property name="connectionProperties" value="config.decrypt=true" />
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

@@ -11,8 +11,7 @@
 
 	<dubbo:application organization="transfer" name="transfer" owner="jackson" />
 
-	<dubbo:registry address="zookeeper://10.10.230.39:2181?backup=10.10.230.39:2182,10.10.230.39:2183"
-	 file="${user.home}/dubbo-service-file/dubbo-ag.cache" />
+	<dubbo:registry address="${zookeeper.address}" file="${dubbo.cache}/dubbo-service-file/transfer/dubbo-Img.cache" />
 
 	<dubbo:protocol name="dubbo" port="20891" threadpool="fixed" threads="1000" />
 

@@ -27,7 +27,7 @@ import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 import com.ds.transfer.record.entity.ApiInfoEntity;
 import com.ds.transfer.record.entity.OgApiUserEntity;
 
-@Service
+/*@Service*/
 public class OgTransferServiceImpl extends CommonTransferService implements OgTransferService<OgApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

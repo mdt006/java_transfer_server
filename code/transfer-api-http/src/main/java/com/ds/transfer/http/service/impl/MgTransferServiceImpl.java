@@ -26,7 +26,7 @@ import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 import com.ds.transfer.record.entity.MgApiUserEntity;
 import com.ds.transfer.record.entity.ApiInfoEntity;
 
-@Service("mgTransferServiceImpl")
+/*@Service("mgTransferServiceImpl")*/
 public class MgTransferServiceImpl extends CommonTransferService implements MgTransferService<MgApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

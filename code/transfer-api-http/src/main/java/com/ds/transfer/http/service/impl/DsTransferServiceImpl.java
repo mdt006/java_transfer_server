@@ -24,7 +24,7 @@ import com.ds.transfer.record.entity.DsApiUserEntity;
  * ds业务
  * @author jackson
  */
-@Service("dsTransferServiceImpl")
+/*@Service("dsTransferServiceImpl")*/
 public class DsTransferServiceImpl extends CommonTransferService implements DsTransferService<DsApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

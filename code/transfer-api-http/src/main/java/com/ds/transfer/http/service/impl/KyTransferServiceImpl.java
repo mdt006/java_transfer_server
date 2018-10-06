@@ -32,7 +32,7 @@ import com.ds.transfer.record.entity.KyApiUserEntity;
  * @author leo
  * @date 2018年4月28日
  */
-@Service("kyTransferServiceImpl")
+/*@Service("kyTransferServiceImpl")*/
 public class KyTransferServiceImpl extends CommonTransferService implements KyTransferService<KyApiUserEntity> {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 

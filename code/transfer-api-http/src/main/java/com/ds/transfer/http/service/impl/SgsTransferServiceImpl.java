@@ -32,7 +32,7 @@ import com.ds.transfer.record.entity.SgsApiUserEntity;
  * @author leo
  * @date 2018年06月06日
  */
-@Service("sgsTransferServiceImpl")
+/*@Service("sgsTransferServiceImpl")*/
 public class SgsTransferServiceImpl extends CommonTransferService implements SgsTransferService<SgsApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

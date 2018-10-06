@@ -21,7 +21,7 @@
   	<dependency>
   		<groupId>com.ds.transfer.common</groupId>
   		<artifactId>transfer-common</artifactId>
-  		<version>0.0.1</version>
+  		<version>0.0.2</version>
   	</dependency>
   </dependencies>
 </project>

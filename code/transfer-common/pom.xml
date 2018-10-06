@@ -13,30 +13,32 @@
   <packaging>jar</packaging>
   <properties>
 		<env>beta</env>
+	  	<env.host>10.200.201.2:8081</env.host>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
   </properties>
 	
 	<repositories>
 		<repository>
-			<id>public-maven</id>
-			<url>http://repo1.maven.org/maven2/</url>
+			<id>public</id>
+			<url>http://${env.host}/nexus/content/repositories/public/</url>
 		</repository>
 		<repository>
-			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+			<id>thirdparty</id>
+			<name>3rd party</name>
+			<url>http://${env.host}/nexus/content/repositories/thirdparty/</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+			<url>http://${env.host}/nexus/content/repositories/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
 			<id>maven-releases</id>
-			<url>http://maven.${env}.ds.com/repository/maven-releases/</url>
+			<url>http://${env.host}/nexus/content/repositories/thirdparty/</url>
 		</repository>
 	</distributionManagement>
 	

@@ -20,7 +20,7 @@
   	<dependency>
   		<groupId>com.ds.transfer.common</groupId>
   		<artifactId>transfer-common</artifactId>
-  		<version>0.0.2</version>
+  		<version>0.0.1</version>
   	</dependency>
   	<dependency>
 	    <groupId>org.apache.httpcomponents</groupId>

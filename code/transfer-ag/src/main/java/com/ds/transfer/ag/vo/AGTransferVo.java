@@ -18,7 +18,7 @@ public class AGTransferVo {
 	private String billno;//billno = (cagent+序列), 序列是唯一的13~16位数,
 	private String type;//值 = “IN” or “OUT”;IN: 从网站账号转款到游戏账号;OUT: 從遊戲账號转款到網站賬號
 	/**
-	 * 如使用  type=OUT,  转出额度时,  只能整数转出,  不能带小数
+	 * 如使用  type=OUT,  转出额度时,  只能整数转出,  不能带小数.
 	 */
 	private BigDecimal credit;//转款额度(如 000.00), 只保留小数点后两个位,
 

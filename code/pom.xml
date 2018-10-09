@@ -37,7 +37,7 @@
 	<dependencies>
 			  <!-- 公共jar包 -->
 		  <dependency>
-			  <groupId>ds.common</groupId>
+			  <groupId>com.ds.common.transfer.common</groupId>
 			  <artifactId>transfer-common</artifactId>
 			  <version>2.0.0</version>
 		  </dependency>

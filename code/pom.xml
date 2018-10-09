@@ -39,7 +39,7 @@
 		  <dependency>
 			  <groupId>common</groupId>
 			  <artifactId>transfer-common</artifactId>
-			  <version>1.0.0</version>
+			  <version>2.0.0</version>
 		  </dependency>
 		<dependency>
 			<groupId>onetwo</groupId>

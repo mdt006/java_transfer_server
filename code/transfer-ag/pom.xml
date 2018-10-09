@@ -17,22 +17,17 @@
   </properties>
   <dependencies>
   	<dependency>
-        <groupId>com.ds.transfer.common</groupId>
+  		<groupId>com.ds.transfer.common</groupId>
   		<artifactId>transfer-common</artifactId>
-  		<version>0.0.2</version>
+  		<version>0.0.1</version>
   	</dependency>
-      <dependency>
-          <groupId>com.ds</groupId>
-          <artifactId>kg-model</artifactId>
-          <version>1.0.0</version>
-      </dependency>
   </dependencies>
   
   <build>
         <resources>
             <resource>
-                <directory>resource</directory>
-                <targetPath>${project.build.directory}/classes/resource</targetPath>
+                <directory>src/main/resources</directory>
+                <targetPath>${project.build.directory}/classes</targetPath>
             </resource>
         </resources>
         <plugins>

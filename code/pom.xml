@@ -388,20 +388,20 @@
 		</repository> -->
 		<repository>
 			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/central/</url>
 		</repository>
 	</repositories>
 	
 	<pluginRepositories>
 		<pluginRepository>
 			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/central/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
 			<id>maven-releases</id>
-			<url>http://maven.${env}.ds.com/repository/maven-releases/</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/central/</url>
 		</repository>
 	</distributionManagement>
 	

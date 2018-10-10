@@ -7,31 +7,29 @@
 	<packaging>pom</packaging>
 	<!-- 配置项目属性 -->
 	<properties>
-		<!--<env>beta</env>-->
-		<env.host>10.200.201.2:8081</env.host>
-
+		<env>beta</env>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.version>4.0.4.RELEASE</spring.version>
 	</properties>
 	<modules>
-		<!--<module>transfer-common</module>-->
+		<module>transfer-common</module>
 		<module>transfer-ag</module>
 		<module>transfer-bbin</module>
-	<!--	<module>transfer-h8</module>
+		<module>transfer-h8</module>
 		<module>transfer-lotto_fenfen</module>
 		<module>transfer-lotto_xiaoyu</module>
 		<module>transfer-mg</module>
-		<module>transfer-lmg</module>-->
+		<module>transfer-lmg</module>
 		<module>transfer-money</module>
-    <!--    <module>transfer-og</module>
-	    <module>transfer-pt</module>-->
+        <module>transfer-og</module>
+	    <module>transfer-pt</module>
 	    <module>transfer-scan</module>
 	    <module>transfer-support</module>
-      	<module>transfer-api-http</module>
-		<!--   <module>transfer-ky</module>
-         <module>transfer-sgs</module>
-         <module>transfer-kkw</module>-->
+        <module>transfer-api-http</module>
+        <module>transfer-ky</module>
+        <module>transfer-sgs</module>
+        <module>transfer-kkw</module>
 	</modules>
 
 	<dependencies>
@@ -40,7 +38,6 @@
 			<artifactId>onetwo-common</artifactId>
 			<version>1.5.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -102,7 +99,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>yooyo</groupId>
+			<groupId>com.yooyo</groupId>
 			<artifactId>yooyo-utils</artifactId>
 			<version>1.0.0</version>
 		</dependency>
@@ -144,7 +141,7 @@
 			<version>1.2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>mybatis</groupId>
+			<groupId>org.mybatis</groupId>
     		<artifactId>mybatis-extend</artifactId>
    			<version>1.0.1</version>
 		</dependency>
@@ -153,7 +150,7 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.2.7</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>jdom</groupId>
 			<artifactId>jdom</artifactId>
@@ -291,12 +288,12 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>-->
-
+		
 		<dependency>
     		<groupId>org.apache.httpcomponents</groupId>
     		<artifactId>httpclient</artifactId>
     		<version>4.5</version>
-		</dependency>
+		</dependency> 
 
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -385,45 +382,26 @@
 	</build>
 	
 	<repositories>
-
-		<!-- 	<repository>
-                    <id>public-maven</id>
-                    <url>http://repo1.maven.org/maven2/</url>
-                </repository> -->
-		<!--<repository>
+<!-- 	<repository>
+			<id>public-maven</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository> -->
+		<repository>
 			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
-		</repository>
-	</repositories>-->
-		<repository>
-			<id>public</id>
-			<url>http://${env.host}/nexus/content/repositories/public/</url>
-		</repository>
-		<repository>
-			<id>thirdparty</id>
-			<name>3rd party</name>
-			<url>http://${env.host}/nexus/content/repositories/thirdparty/</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/public/</url>
 		</repository>
 	</repositories>
 	
 	<pluginRepositories>
-		<!--<pluginRepository>
-			<id>central</id>
-			<url>http://maven.${env}.ds.com/repository/maven-public/</url>
-		</pluginRepository>-->
 		<pluginRepository>
 			<id>central</id>
-			<url>http://${env.host}/nexus/content/repositories/public</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/public/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
-		<!--<repository>
-			<id>maven-releases</id>
-			<url>http://maven.${env}.ds.com/repository/maven-releases/</url>
-		</repository>-->
 		<repository>
 			<id>maven-releases</id>
-			<url>http://${env.host}/nexus/content/repositories/thirdparty/</url>
+			<url>http://10.200.201.2:8081/nexus/content/repositories/public/</url>
 		</repository>
 	</distributionManagement>
 	

@@ -21,20 +21,96 @@
   		<groupId>com.ds.transfer.common</groupId>
   		<artifactId>transfer-common</artifactId>
   		<version>0.0.2</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
   	</dependency>
   	<dependency>
 	    <groupId>com.baidu.disconf</groupId>
 	    <artifactId>disconf-client</artifactId>
 	    <version>2.6.2</version>
 	</dependency>
-  	
+
   </dependencies>
-	<build>
+<!--	<build>
 		<resources>
 			<resource>
 				<directory>resource</directory>
 				<targetPath>${project.build.directory}/classes/resource</targetPath>
 			</resource>
 		</resources>
-	</build>
+	</build>-->
+    <build>
+        <plugins>
+            <!-- 项目资源文件copy到target外面，方便发布修改配置 -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/resource</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>resource</directory>
+                                    <filtering>true</filtering>
+                                    <!-- <excludes>
+                                         <exclude>conf/*</exclude>
+                                     </excludes>-->
+                                </resource>
+                                <!--  <resource>
+                                      &lt;!&ndash; 将配置文件覆盖resources下面的applicationContext，后期发布就不需要更改路径 &ndash;&gt;
+                                      <directory>src/main/resources/conf</directory>
+                                      <filtering>true</filtering>
+                                      <includes>
+                                          <include>applicationContext.xml</include>
+                                      </includes>
+                                  </resource>-->
+                            </resources>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 把依赖包打到外面 -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.ds.transfer.record.main.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

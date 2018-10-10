@@ -11,8 +11,8 @@
 	<import resource="../resource/applicationContext-provider.xml" />
 	<context:component-scan base-package="com.ds.transfer" />
 	<!-- 使用外部的配置文件 -->
-	<context:property-placeholder location="file:/data1/appl/yefeng/jar/transfer-support/resource/jdbc.properties" />
-	<!--<context:property-placeholder location="file:F:\project\transfer_server\code\jdbc.properties" />-->
+	<!--<context:property-placeholder location="file:/data1/appl/yefeng/jar/transfer-support/resource/jdbc.properties" />-->
+	<context:property-placeholder location="file:F:\project\transfer_server\code\jdbc.properties" />
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
@@ -26,7 +26,7 @@
 		<!-- 最大并发连接数 -->
 		<property name="maxActive" value="100" />
 		<property name="filters" value="config,stat" />
-		<property name="connectionProperties" value="config.decrypt=true" />
+		<property name="connectionProperties" value="${mysql_passwd_decrypt}" />
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

@@ -50,6 +50,11 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 		dsIpExample.createCriteria().andStateEqualTo(50);
 		List<DsIpList> ipList = dsIpListMapper.selectByExample(dsIpExample);
 		whiteList = ipList;
+		StringBuffer sb = new StringBuffer();
+		for(DsIpList ip : ipList){
+			sb.append(ip.getIp()+",	");
+		}
+		logger.info("ip列表："+sb.toString());
 		logger.info("初始化白名单IP完成！");
 	}
 	

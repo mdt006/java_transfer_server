@@ -243,8 +243,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				result = result.concat("&page_present=live");
 			}
 			String loginUrl = StringsUtil.isNull(param.getLoginUrl()) != true ? param.getLoginUrl() : entity.getBbinUrl() + BbinConstants.function.LOGIN;
-			message.append("请求地址：").append(loginUrl).append("\n");
-			message.append("请求参数：").append(result).append("\n");
+			logger.info("登录请求参数={}, 登录请求地址={}",result,loginUrl);
 			result = StringsUtil.sendPost1(loginUrl, result);
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("siteId={},username：{},login bbin result:{}",entity.getSiteId(),username,result);

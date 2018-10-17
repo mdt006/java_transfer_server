@@ -534,7 +534,7 @@ public class TransferControllerNew extends BaseController {
 				String gamecode = request.getParameter("gameCode");
 				String isFlash = String.valueOf(request.getParameter("isFlash"));
 				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE_Chinese : lang;
-				pageSite = StringsUtil.isNull(pageSite) ? "live" : pageSite;
+				//pageSite = StringsUtil.isNull(pageSite) ? "live" : pageSite;
 				logger.info("bbin login : lang = {}, page_site = {}, gameType = {},isFlash={}, gamekind = {}, gamecode = {}", lang,pageSite, gameType,isFlash,gamekind, gamecode);
 				if (StringsUtil.isNull(gameType)) {// 大厅登录
 					LoginParam loginParam = new LoginParam(entity, username);

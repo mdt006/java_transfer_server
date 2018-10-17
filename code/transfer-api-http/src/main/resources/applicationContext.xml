@@ -11,7 +11,7 @@
  
  
      <!-- 使用外部的配置文件 -->
-	<context:property-placeholder location="file:/data1/appl/yefeng/jar/transfer-support/resource/jdbc.properties, file:/data1/appl/yefeng/jar/transfer-api-http/resource/dubbo.properties" />
+	<context:property-placeholder location="file:/data1/appl/yefeng/war/transfer-support/resource/jdbc.properties, file:/data1/appl/yefeng/war/transfer-api-http/resource/dubbo.properties" />
     <!--<context:property-placeholder location="file:F:/project/transfer_server/code/transfer-api-http/src/main/resources/jdbc.properties, file:F:/project/transfer_server/code/transfer-api-http/src/main/resources/dubbo.properties" />-->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}"></property>

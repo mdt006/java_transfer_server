@@ -88,6 +88,9 @@ public class TransferControllerNew extends BaseController {
 
 	@Resource(name = "transferRecordDetailServiceImpl")
 	private TransferRecordDetailService transferRecordDetailService;
+
+	@Resource(name="lmgTransferServiceImpl")
+	private LmgTransferService<LmgApiUserEntity> lmgTransferService;
 	/*@Resource(name = "h8TransferServiceImpl")
 	private H8TransferService<H8ApiUserEntity> h8TransferService;
 
@@ -115,8 +118,7 @@ public class TransferControllerNew extends BaseController {
 	@Resource(name="ptTransferServiceImpl")
 	private PtTransferService<PtApiUserEntity> ptTransferService;
 	
-	@Resource(name="lmgTransferServiceImpl")
-	private LmgTransferService<LmgApiUserEntity> lmgTransferService;
+
 	
 	@Resource(name="kyTransferServiceImpl")
 	private KyTransferService<LmgApiUserEntity> kyTransferService;
@@ -560,7 +562,22 @@ public class TransferControllerNew extends BaseController {
 					logger.info("bbin 电子游戏 return result = {}", result);
 					return result;
 				}
-			} /*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
+			}else if(SysConstants.LiveId.LMG.equals(live)){
+				username = request.getParameter("username");
+				gameType = request.getParameter("gameType");
+				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE : lang;
+				String line = request.getParameter("line");
+				LoginParam loginParam = new LoginParam(entity, username);
+				loginParam.setLanguage(lang);
+				loginParam.setCur(request.getParameter("cur"));
+				loginParam.setGameType(gameType);
+				loginParam.setLine(line);
+				logger.info("LMG login : username = {}, gameType = {}, lang = {}, line = {}", username,gameType, lang,line);
+				result = this.lmgTransferService.login(loginParam);
+				logger.info("LMG 大厅 return username={},gameType={} result = {}",username,gameType,result);
+				return result;
+			}
+			/*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
 				String loginChannel = request.getParameter("loginChannel");
 				String line = request.getParameter("line");// 线路(1, 2, …)
@@ -627,21 +644,7 @@ public class TransferControllerNew extends BaseController {
 				result = this.dsTransferService.login(param);
 				logger.info("ds login return result = {}", result);
 				return result;
-			}else if(SysConstants.LiveId.LMG.equals(live)){
-				username = request.getParameter("username");
-				gameType = request.getParameter("gameType");
-				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE : lang;
-				String line = request.getParameter("line");
-				LoginParam loginParam = new LoginParam(entity, username);
-				loginParam.setLanguage(lang);
-				loginParam.setCur(request.getParameter("cur"));
-				loginParam.setGameType(gameType);
-				loginParam.setLine(line);
-				logger.info("LMG login : username = {}, gameType = {}, lang = {}, line = {}", username,gameType, lang,line);
-				result = this.lmgTransferService.login(loginParam);
-				logger.info("LMG 大厅 return username={},gameType={} result = {}",username,gameType,result);
-				return result;
-			} else if (SysConstants.LiveId.H8.equals(live)) { // h8 不能登陆
+			}else if (SysConstants.LiveId.H8.equals(live)) { // h8 不能登陆
 				String action = request.getParameter("action");
 				String accType = request.getParameter("accType");
 				String line = request.getParameter("line");

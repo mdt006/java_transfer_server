@@ -32,7 +32,7 @@ import com.ds.transfer.record.entity.LmgApiUserEntity;
  * @author leo
  * @date 2018年2月23日
  */
-/*@Service("lmgTransferServiceImpl")*/
+@Service("lmgTransferServiceImpl")
 public class LmgTransferServiceImpl extends CommonTransferService implements LmgTransferService<LmgApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -155,7 +155,7 @@ public class LmgTransferServiceImpl extends CommonTransferService implements Lmg
 		}
 	}
 
-	public String login(LoginParam param) {
+/*	public String login(LoginParam param) {
 		logger.info("lmg login before username={},siteId={}",param.getUsername(),param.getEntity().getSiteId());
 		long startTime = System.currentTimeMillis();
 		String result = this.lmgTransfer.login(param);
@@ -163,6 +163,29 @@ public class LmgTransferServiceImpl extends CommonTransferService implements Lmg
 		String providerIp = printProviderIp();
 		logger.info("lmg login after username={},siteId={},ip={},elapsedTime={},result={}", providerIp,(endTime-startTime),result);
 		return result;
+	}*/
+	@Override
+	public String login(LoginParam param) {
+		Map<String, Object> resultMap = null;
+		String result = null;
+		String providerIp = null;
+		try {
+			ApiInfoEntity entity = param.getEntity();
+			//1.用户存在?
+			UserParam userParam = new UserParam(entity, param.getUsername(), null, null, entity.getIsDemo() + "",null);
+			resultMap = this.checkAndCreateMember(userParam);
+			if (!SUCCESS.equals(resultMap.get(STATUS))) {
+				return JSONUtils.map2Json(resultMap);
+			}
+			//2.登录
+			result = this.lmgTransfer.login(param);
+			providerIp = printProviderIp();
+			logger.info("lmg login ip = {}, result = {}", providerIp, result);
+			return result;
+		} catch (Exception e) {
+			logger.error("lmg登录异常 : ", e);
+			return JSONUtils.map2Json(maybe("lmg登录异常"));
+		}
 	}
 
 	@Override
@@ -230,8 +253,12 @@ public class LmgTransferServiceImpl extends CommonTransferService implements Lmg
 	public String queryAgentBalance(QueryBalanceParam queryBalanceParam) {
 		return null;
 	}
+
 	@Override
 	public Map<String, Object> checkAndCreateMember(UserParam param) {
-		return null;
+		Map<String, Object> resultMap = this.lmgTransfer.checkAndCreateMember(param);
+		String providerIp = printProviderIp();
+		logger.info("lmg checkAndCreateMember ip = {}, result = {}", providerIp, JSONUtils.map2Json(resultMap));
+		return resultMap;
 	}
 }

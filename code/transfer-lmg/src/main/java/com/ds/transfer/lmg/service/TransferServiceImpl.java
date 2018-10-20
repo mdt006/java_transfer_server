@@ -194,7 +194,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			String gameType = param.getGameType();
 			LoginVo vo = new LoginVo(entity.getHashcode(),LmgConstants.LOGIN);
-			LoginVo.Param params = vo.new Param(platformUser, entity.getPassword(), StringsUtil.isNull(param.getCur()) ? entity.getCurrencyType() : param.getCur(),
+			LoginVo.Param params = vo.new Param(platformUser, StringsUtil.toMD5(entity.getPassword()), StringsUtil.isNull(param.getCur()) ? entity.getCurrencyType() : param.getCur(),
 					platformUser, param.getLanguage(), Integer.valueOf(param.getLine()),gameType,tipStatus);
 			vo.setParams(params);
 			String loginParam = JSONUtils.bean2Json(vo);
@@ -203,7 +203,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			message.append("请求地址：").append(url).append("\n");
 			message.append("请求参数：").append(loginParam).append("\n");
 			long startTime = System.currentTimeMillis();
-			result = StringsUtil.sendPost1(url, loginParam);
+				result = StringsUtil.sendPost1(url, loginParam);
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("lmg login after username={},siteId={},elapsedTime={} ms,result={}",param.getUsername(),entity.getSiteId(),(endTime-startTime),result);

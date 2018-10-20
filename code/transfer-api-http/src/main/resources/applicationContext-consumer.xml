@@ -26,7 +26,9 @@
 	<!-- bbin视讯体育电子 -->
 	<dubbo:reference id="bbinTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="bbin" version="1.0.0" owner="jackson" timeout="60000" />
-	
+
+	<dubbo:reference id="lmgTransfer" interface="com.ds.transfer.common.service.TransferService"
+		group="lmg" version="1.0.0" owner="jackson" timeout="60000" />
 	<!-- h8体育 -->
 	<!--<dubbo:reference id="h8Transfer" interface="com.ds.transfer.common.service.TransferService"
 		group="h8" version="1.0.0" owner="jackson" timeout="60000" />
@@ -51,10 +53,6 @@
 	<dubbo:reference id="ptTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="pt" version="1.0.0" owner="jackson" timeout="60000" />
 
-	&lt;!&ndash; lmg &ndash;&gt;
-	<dubbo:reference id="lmgTransfer" interface="com.ds.transfer.common.service.TransferService" 
-		group="lmg" version="1.0.0" owner="jackson" timeout="60000" />
-		
 	&lt;!&ndash; ky &ndash;&gt;
 	<dubbo:reference id="kyTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="ky" version="1.0.0" owner="jackson" timeout="60000" />

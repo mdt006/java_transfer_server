@@ -154,7 +154,7 @@ public class TransferControllerNew extends BaseController {
 	 * @param billno 唯一转账编码
 	 * @param type 转账类型
 	 * @param credit 金额
-	 * @param isDemo 是否是试玩 试玩:0,正式:1(默认,不传就是正式)
+	 //* @param isDemo 是否是试玩 试玩:0,正式:1(默认,不传就是正式)
 	 * @param cur 货币类型
 	 * @param transMethod 转账类型 ag | bbin | h8 | ag-bbin | ag-h8 | bbin-h8 | ag-mg | balanceTotal;优先级ag,bbin,h8,mg
 	 * @param request
@@ -394,7 +394,6 @@ public class TransferControllerNew extends BaseController {
 	 * 
 	 * @param username
 	 * @param siteId
-	 * @param isDemo
 	 * @param live
 	 * 存放AG=2 BBIN=11 DS=12 H8=13
 	 * @return
@@ -806,8 +805,8 @@ public class TransferControllerNew extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "queryStatusByBillno", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public String queryStatusByBillno(String username, String siteId, String billno, String key,
-			HttpServletRequest request) {
+	public String queryStatusByBillno(String username, String siteId, String billno, String key, HttpServletRequest request) {
+
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			String ip = StringsUtil.getIpAddr(request);
@@ -855,14 +854,12 @@ public class TransferControllerNew extends BaseController {
 	}
 
 	@RequestMapping(value = "queryRecord", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public String queryRecord(String username, String siteId, String startTime, String endTime, String billno,
-			String fromLive, String toLive, String type, String status, Integer page, Integer pageLimit
-			, HttpServletRequest request) {
+	public String queryRecord(String username, String siteId, String startTime, String endTime, String billno, String fromLive, String toLive, String type, String status, Integer page, Integer pageLimit, HttpServletRequest request) {
+
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			String ip = StringsUtil.getIpAddr(request);
-			logger.info("queryRecord : username = {}, siteId = {}, billno = {}, fromLive = {}, toLive = {}, status = {}, startTime = {}, endTime = {}, page = {}, pageLimit = {}, ip={}", //
-					username, siteId, billno, fromLive, toLive, status, startTime, endTime, page, pageLimit, ip);
+			logger.info("queryRecord : username = {}, siteId = {}, billno = {}, fromLive = {}, toLive = {}, status = {}, startTime = {}, endTime = {}, page = {}, pageLimit = {}, ip={}", username, siteId, billno, fromLive, toLive, status, startTime, endTime, page, pageLimit, ip);
 			resultMap.put("siteId", siteId);
 			resultMap = StringsUtil.isNull(resultMap);
 			if (!SUCCESS.equals(resultMap.get(STATUS))) {
@@ -880,8 +877,7 @@ public class TransferControllerNew extends BaseController {
 			resultMap.put("page", page);
 			resultMap.put("pageLimit", pageLimit);
 			String result = this.transferRecordDetailService.queryRecordByPage(resultMap);
-			logger.info("queryRecord return result count = {}, status = {}, message = {}", resultMap.get("total"),
-					resultMap.get(STATUS), resultMap.get(MESSAGE));
+			logger.info("queryRecord return result count = {}, status = {}, message = {}", resultMap.get("total"),resultMap.get(STATUS), resultMap.get(MESSAGE));
 			return result;
 		} catch (Exception e) {
 			logger.error("查询记录出错", e);

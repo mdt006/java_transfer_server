@@ -23,5 +23,17 @@ public interface LmgConstants {
 	
 	//LMG验证交易号
 	final String CHECK = "CHECK_REF";
-	
+
+	//和用户有关（测试环境）
+	final String TEST_USER="http://gbklivesw.iasia99.com/gbkapilivesw/app/api.do";
+	//和用户有关（正式环境）
+	final String FORMAL_USER="http://gbklive.ppkp88.com/gbkapilive/app/api.do";
+	//和钱有关（测试环境）
+	final String TEST_MONEY="http://gbktradesw.iasia99.com/gbkapitradesw/app/api.do";
+	//和钱有关（正式环境）
+	final String FORMAL_MONEY="http://gbktrade.ppkp88.com/gbkapitrade/app/api.do";
+	//和记录有关的（测试环境）
+	final String TEST_RECORD="http://gbkrecordsw.iasia99.com/gbkapirecordsw/app/api.do";
+	//和记录有关的（正式环境）
+	final String FORMAL_RECORD="http://gbkrecord.ppkp88.com/gbkapirecord/app/api.do";
 }

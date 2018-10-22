@@ -52,6 +52,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	protected RedisTemplate<String, String> redisTemplate;
 	//小飞机消息组件
 	TelegramMessage telegramMessage = TelegramMessage.getInstance();
+	//目前仅测试
+	String baseUrl = LmgConstants.TEST_MONEY;
 
 	@Override
 	public String transfer(TransferParam transferParam) {
@@ -61,7 +63,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		String msg = null;
 		String prefix= "";
 		try {
-			String url = entity.getReportUrl().split(",")[1];
+			//String baseUrl =  entity.getIsDemo().equals("1")? LmgConstants.FORMAL_MONEY:LmgConstants.TEST_MONEY;
+			//目前仅测试
 			if(!StringsUtil.isNull(entity.getPrefix())){
 				prefix = entity.getPrefix();
 			}
@@ -77,19 +80,19 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			dsRecord = this.transferRecordService.insert(entity.getSiteId(), entity.getLiveId(), transferParam.getTransRecordId(), entity.getPassword(),
 					transferParam.getUsername(), transferParam.getCredit(), transferParam.getBillno(),transferParam.getType(), LmgConstants.LMG, transferParam.getRemark(), dsRecord);
 			logger.info("lmg 转账记录插入成功,username={},siteId={},id = {}",transferParam.getUsername(),entity.getSiteId(),dsRecord.getId());
-			MoneyVo vo = new MoneyVo(platformUser, entity.getPassword(), transferParam.getBillno(),"ds钱包转" + (IN.equals(transferParam.getType()) ? "入" : "出"), transferParam.getCredit());
+			MoneyVo vo = new MoneyVo(platformUser, StringsUtil.toMD5(entity.getPassword()), transferParam.getBillno(),"ds钱包转" + (IN.equals(transferParam.getType()) ? "入" : "出"), transferParam.getCredit());
 			String paramBody = JSONUtils.bean2Json(vo);
 			
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("hashCode", entity.getHashcode());
 			param.put("command", (IN.equals(transferParam.getType()) ? LmgConstants.IN : LmgConstants.OUT));
 			param.put("params", JSONObject.parse(paramBody));
-			message.append("请求地址：").append(url).append("\n");
+			message.append("请求地址：").append(baseUrl).append("\n");
 			message.append("请求参数").append(JSONUtils.map2Json(param)).append("\n");
-			logger.info("lmg transfer before username={},siteId={},url ={},param={}",transferParam.getUsername(),entity.getSiteId(),url,param.toString());
+			logger.info("lmg transfer before username={},siteId={},baseUrl ={},param={}",transferParam.getUsername(),entity.getSiteId(),baseUrl,param.toString());
 			
 			long startTime = System.currentTimeMillis();
-			String result = StringsUtil.sendPost1(url, JSONUtils.map2Json(param));
+			String result = StringsUtil.sendPost1(baseUrl, JSONUtils.map2Json(param));
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("lmg transfer after username={},siteId={},elapsedTime={} ms,result={}",transferParam.getUsername(),entity.getSiteId(),(endTime-startTime),result);
@@ -134,18 +137,18 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			Map<String, Object> lmgParam = new HashMap<>();
 			lmgParam.put("hashCode", entity.getHashcode());
 			lmgParam.put("command",LmgConstants.BALANCE);
-			String url = entity.getReportUrl().split(",")[1];
+
 			Map<String, Object> paramBody = new HashMap<>();
 			paramBody.put("username",platformUser);
-			paramBody.put("password", entity.getPassword());
+			paramBody.put("password",StringsUtil.toMD5(entity.getPassword()));
 			lmgParam.put("params", paramBody);
 			String sendParam = JSONUtils.map2Json(lmgParam);
-			message.append("请求地址：").append(url).append("\n");
+			message.append("请求地址：").append(baseUrl).append("\n");
 			message.append("请求参数：").append(sendParam).append("\n");
 			logger.info("lmg queryBalance before username={},siteId={},param={}",param.getUsername(),entity.getSiteId(),sendParam);
 			
 			long startTime = System.currentTimeMillis();
-			String result = StringsUtil.sendPost1(url, sendParam);
+			String result = StringsUtil.sendPost1(baseUrl, sendParam);
 			long endTime = System.currentTimeMillis();
 			logger.info("lmg queryBalance after username={},siteId={},elapsedTime={} ms,result={}",param.getUsername(),entity.getSiteId(),(endTime-startTime),result);
 			
@@ -198,12 +201,11 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 					platformUser, param.getLanguage(), Integer.valueOf(param.getLine()),gameType,tipStatus);
 			vo.setParams(params);
 			String loginParam = JSONUtils.bean2Json(vo);
-			String url = entity.getReportUrl().split(",")[0];
-			logger.info("lmg login before username={},siteId={},url={},param={}",param.getUsername(),entity.getSiteId(),url,loginParam);
-			message.append("请求地址：").append(url).append("\n");
+			logger.info("lmg login before username={},siteId={},baseUrl={},param={}",param.getUsername(),entity.getSiteId(),baseUrl,loginParam);
+			message.append("请求地址：").append(baseUrl).append("\n");
 			message.append("请求参数：").append(loginParam).append("\n");
 			long startTime = System.currentTimeMillis();
-				result = StringsUtil.sendPost1(url, loginParam);
+				result = StringsUtil.sendPost1(baseUrl, loginParam);
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("lmg login after username={},siteId={},elapsedTime={} ms,result={}",param.getUsername(),entity.getSiteId(),(endTime-startTime),result);
@@ -224,7 +226,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				paramMap.put("command", "CHANGE_PASSWORD");
 				paramMap.put("params", paramsMap);
 				logger.info("lmg before chancePassword username={},siteId={}, param={}",platformUser,entity.getSiteId(),loginParam);
-				String chancePasswordResult = StringsUtil.sendPost1(url, JSONUtils.map2Json(paramMap));
+				String chancePasswordResult = StringsUtil.sendPost1(baseUrl, JSONUtils.map2Json(paramMap));
 				JSONObject jsonObject = JSONObject.parseObject(chancePasswordResult);
 				logger.info("lmg after chancePassword username={},siteId={}, result={}",platformUser,entity.getSiteId(),chancePasswordResult);
 				if(jsonObject.containsKey("errorCode") && 0 == jsonObject.getInteger("errorCode")){
@@ -255,7 +257,6 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		message.append(",会员：").append(param.getUsername());
 		
 		try {
-			String url = entity.getReportUrl().split(",")[1];
 			Map<String, Object> lmgParam = new HashMap<>();
 			lmgParam.put("hashCode", entity.getHashcode());
 			lmgParam.put("command",LmgConstants.CHECK);
@@ -264,11 +265,11 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			paramBody.put("ref", param.getBillno());
 			lmgParam.put("params", paramBody);
 			String sendParam = JSONUtils.map2Json(lmgParam);
-			message.append("请求地址：").append(url).append("\n");
+			message.append("请求地址：").append(baseUrl).append("\n");
 			message.append("请求参数：").append(sendParam).append("\n");
-			logger.info("lmg queryStatusByBillno before username={},siteId={},url={},param={}",param.getUsername(),entity.getSiteId(),url,sendParam);
+			logger.info("lmg queryStatusByBillno before username={},siteId={},baseUrl={},param={}",param.getUsername(),entity.getSiteId(),baseUrl,sendParam);
 			long startTime = System.currentTimeMillis();
-			String result = StringsUtil.sendPost1(url,sendParam);
+			String result = StringsUtil.sendPost1(baseUrl,sendParam);
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("lmg queryStatusByBillno after username={},siteId={},elapsedTime={} ms,result={}",param.getUsername(),entity.getSiteId(),(endTime-startTime),result);

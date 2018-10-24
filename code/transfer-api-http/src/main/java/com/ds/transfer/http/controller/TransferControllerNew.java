@@ -119,7 +119,7 @@ public class TransferControllerNew extends BaseController {
 	 * @param oddtype 限红 在查询余额用户不存在,创建会员的时候用到
 	 * @param billno 唯一转账编码
 	 * @param type 转账类型
-	 * @param credit 金额
+	 * @param credit 金额1111111111111111111111
 	 //* @param isDemo 是否是试玩 试玩:0,正式:1(默认,不传就是正式)
 	 * @param cur 货币类型
 	 * @param transMethod 转账类型 ag | bbin | h8 | ag-bbin | ag-h8 | bbin-h8 | ag-mg | balanceTotal;优先级ag,bbin,h8,mg

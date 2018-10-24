@@ -52,8 +52,6 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	protected RedisTemplate<String, String> redisTemplate;
 	//小飞机消息组件
 	TelegramMessage telegramMessage = TelegramMessage.getInstance();
-	//目前仅测试
-	String baseUrl = LmgConstants.TEST_MONEY;
 
 	@Override
 	public String transfer(TransferParam transferParam) {
@@ -65,6 +63,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			//String baseUrl =  entity.getIsDemo().equals("1")? LmgConstants.FORMAL_MONEY:LmgConstants.TEST_MONEY;
 			//目前仅测试
+			String baseUrl=LmgConstants.TEST_MONEY;
 			if(!StringsUtil.isNull(entity.getPrefix())){
 				prefix = entity.getPrefix();
 			}
@@ -122,6 +121,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	
 	@Override
 	public String queryBalance(QueryBalanceParam param) {
+
+		String baseUrl=LmgConstants.TEST_MONEY;
 		StringBuilder message = new StringBuilder();
 		String prefix = "";
 		try {
@@ -183,6 +184,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 
 	@Override
 	public String login(LoginParam param) {
+
+		String baseUrl=LmgConstants.TEST_USER;
 		StringBuilder message = new StringBuilder();
 		String tipStatus = "CLOSE"; //小费关闭状态
 		String result = null;
@@ -250,6 +253,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	
 	@Override
 	public String queryStatusByBillno(QueryOrderStatusParam param) {
+
+		String baseUrl=LmgConstants.TEST_MONEY;
 		StringBuilder message = new StringBuilder();
 		ApiInfoEntity entity = param.getEntity();
 		

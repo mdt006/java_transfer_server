@@ -1,28 +1,5 @@
 package com.ds.transfer.http.controller;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import com.alibaba.fastjson.JSONObject;
+
 import com.ds.transfer.common.constants.SysConstants;
 import com.ds.transfer.common.service.TransferService;
 import com.ds.transfer.common.util.JSONUtils;
@@ -38,38 +15,27 @@ import com.ds.transfer.http.entity.BalanceTotalEntity;
 import com.ds.transfer.http.entity.LimitAmountInfo;
 import com.ds.transfer.http.entity.TransferRecordDetailEntity;
 import com.ds.transfer.http.entity.TransferStatus;
-import com.ds.transfer.http.service.AgTransferService;
-import com.ds.transfer.http.service.ApiInfoService;
-import com.ds.transfer.http.service.BbinTransferService;
-import com.ds.transfer.http.service.DsTransferService;
-import com.ds.transfer.http.service.KkwTransferService;
-import com.ds.transfer.http.service.FenfenTransferService;
-import com.ds.transfer.http.service.H8TransferService;
-import com.ds.transfer.http.service.KyTransferService;
-import com.ds.transfer.http.service.LmgTransferService;
-import com.ds.transfer.http.service.MgTransferService;
-import com.ds.transfer.http.service.OgTransferService;
-import com.ds.transfer.http.service.PlatformUrlService;
-import com.ds.transfer.http.service.PtTransferService;
-import com.ds.transfer.http.service.SgsTransferService;
-import com.ds.transfer.http.service.SupportTransferService;
-import com.ds.transfer.http.service.TransRecordService;
-import com.ds.transfer.http.service.TransferRecordDetailService;
-import com.ds.transfer.http.service.XiaoyuTransferService;
+import com.ds.transfer.http.service.*;
 import com.ds.transfer.http.util.PropsUtil;
 import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 import com.ds.transfer.http.vo.thread.TotalBalanceByLive;
-import com.ds.transfer.record.entity.AgApiUserEntity;
-import com.ds.transfer.record.entity.ApiInfoEntity;
-import com.ds.transfer.record.entity.BbinApiUserEntity;
-import com.ds.transfer.record.entity.DsApiUserEntity;
-import com.ds.transfer.record.entity.H8ApiUserEntity;
-import com.ds.transfer.record.entity.KkwApiUserEntity;
-import com.ds.transfer.record.entity.LmgApiUserEntity;
-import com.ds.transfer.record.entity.MgApiUserEntity;
-import com.ds.transfer.record.entity.OgApiUserEntity;
-import com.ds.transfer.record.entity.PtApiUserEntity;
-import com.ds.transfer.record.entity.SgsApiUserEntity;
+import com.ds.transfer.record.entity.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.concurrent.*;
 
 /**
  * http转账接口
@@ -91,10 +57,10 @@ public class TransferControllerNew extends BaseController {
 
 	@Resource(name="lmgTransferServiceImpl")
 	private LmgTransferService<LmgApiUserEntity> lmgTransferService;
-	/*@Resource(name = "h8TransferServiceImpl")
+	@Resource(name = "h8TransferServiceImpl")
 	private H8TransferService<H8ApiUserEntity> h8TransferService;
 
-	@Resource(name = "ogTransferServiceImpl")
+	/*@Resource(name = "ogTransferServiceImpl")
 	private OgTransferService<OgApiUserEntity> ogTransferService;
 
 	@Resource(name = "dsTransferServiceImpl")
@@ -164,6 +130,7 @@ public class TransferControllerNew extends BaseController {
 	public @ResponseBody String transfer(String username, String operator, String key, String siteId, String live,
 			String oddtype,String billno, String type, String credit, String cur, String transMethod,String playerIp,String terminal, //
 			HttpServletRequest request, HttpServletResponse response) {
+
 		String ip = StringsUtil.getIpAddr(request);// 获取请求的 ip
 		String isDemo = PropsUtil.getProperty("isDemo");
 		logger.info("转账 : username = {}, operator = {}, key = {}, siteId = {}, live = {}, oddtype = {}, billno = {}, type = {},"
@@ -481,6 +448,7 @@ public class TransferControllerNew extends BaseController {
 	public @ResponseBody String login(String username, String siteId, String live, String lottoTray, String gameType, //
 			String cur, String lang,String key, String xiaoyuSiteId,String lid,String platformURL,String app_id,
 			String playerIp,String terminal,HttpServletRequest request, HttpServletResponse response) {
+
 		String ip = StringsUtil.getIpAddr(request);
 		String isDemo = PropsUtil.getProperty("isDemo");
 		logger.info("login : username = {}, siteId = {}, live = {}, lottoTray = {}, gameType = {}, cur = {}, lang = {}, isDemo = {}, key = {}, ip = {},app_id={}", //
@@ -575,6 +543,23 @@ public class TransferControllerNew extends BaseController {
 				result = this.lmgTransferService.login(loginParam);
 				logger.info("LMG 大厅 return username={},gameType={} result = {}",username,gameType,result);
 				return result;
+			}else if (SysConstants.LiveId.H8.equals(live)) { // h8 不能登陆
+				String action = request.getParameter("action");
+				String accType = request.getParameter("accType");
+				String line = request.getParameter("line");
+				String lottoType = request.getParameter("lottoType");
+				action = StringsUtil.isNull(action) ? TransferConstants.H8_LOGIN_ACTION : action;
+				accType = StringsUtil.isNull(accType) ? TransferConstants.H8_LOGIN_ACC_TYPE : accType;
+				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE_Chinese : lang;
+				logger.info("h8 login : action = {}, accType = {}, lang = {}, lottoType = {}, line = {}", action,accType, lang, lottoType, line);
+				LoginParam loginParam = new LoginParam(entity, username);
+				loginParam.setAction(action);
+				loginParam.setAccType(accType);
+				loginParam.setLottoType(lottoType);
+				loginParam.setLanguage(lang);
+				result = this.h8TransferService.login(loginParam);
+				logger.info("h8 login return result = {}", result);
+				return result;
 			}
 			/*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
@@ -642,23 +627,6 @@ public class TransferControllerNew extends BaseController {
 				param.setLoginUrl(request.getParameter("loginUrl"));
 				result = this.dsTransferService.login(param);
 				logger.info("ds login return result = {}", result);
-				return result;
-			}else if (SysConstants.LiveId.H8.equals(live)) { // h8 不能登陆
-				String action = request.getParameter("action");
-				String accType = request.getParameter("accType");
-				String line = request.getParameter("line");
-				String lottoType = request.getParameter("lottoType");
-				action = StringsUtil.isNull(action) ? TransferConstants.H8_LOGIN_ACTION : action;
-				accType = StringsUtil.isNull(accType) ? TransferConstants.H8_LOGIN_ACC_TYPE : accType;
-				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE_Chinese : lang;
-				logger.info("h8 login : action = {}, accType = {}, lang = {}, lottoType = {}, line = {}", action,accType, lang, lottoType, line);
-				LoginParam loginParam = new LoginParam(entity, username);
-				loginParam.setAction(action);
-				loginParam.setAccType(accType);
-				loginParam.setLottoType(lottoType);
-				loginParam.setLanguage(lang);
-				result = this.h8TransferService.login(loginParam);
-				logger.info("h8 login return result = {}", result);
 				return result;
 			} else if (SysConstants.LiveId.OG.equals(live)) {// og登录 目前只有视讯
 				//OG登录语言参数和MG相同,先用MG的
@@ -958,14 +926,14 @@ public class TransferControllerNew extends BaseController {
 		if (usernames.contains(",")) {
 			String[] usernameArr = usernames.split(",");
 			for (String username : usernameArr) {
-				//result = this.h8TransferService.changeOddType(entity, username, maxCreditPerBet, maxCreditPerMatch);
+				result = this.h8TransferService.changeOddType(entity, username, maxCreditPerBet, maxCreditPerMatch);
 				resultMap = JSONUtils.json2Map(result);
 				if (!SUCCESS.equals(resultMap.get(STATUS))) {
 					buffer.append("username=").append(username).append("[reason=").append(resultMap.get(MESSAGE)).append("]").append(";");
 				}
 			}
 		} else {
-			//result = this.h8TransferService.changeOddType(entity, usernames, maxCreditPerBet, maxCreditPerMatch);
+			result = this.h8TransferService.changeOddType(entity, usernames, maxCreditPerBet, maxCreditPerMatch);
 		}
 		if (buffer.length() > 0) {
 			buffer.append(" are not success , query the reason why failure!");
@@ -976,6 +944,7 @@ public class TransferControllerNew extends BaseController {
 	
 	@RequestMapping(value = "checkTransfer", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String checkTransfer(String username, String siteId, String live, String billno){
+
 		logger.info("查询转账确认接口 param= username={},siteId={},live={},billno={}",username,siteId,live,billno);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {

@@ -78,14 +78,14 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 					transferParam.getBillno(), type, H8Constants.H8, transferParam.getRemark(), record);
 			logger.info("h8转账记录,  id = {}", record.getId());
 			
-			H8TransferVo vo = new H8TransferVo(entity.getSecret(), entity.getAgent(), transferParam.getUsername(),//
+			H8TransferVo vo = new H8TransferVo(entity.getPassword(), entity.getAgent(), transferParam.getUsername(),//
 					IN.equals(type) ? H8Constants.function.TRANSFER_IN : H8Constants.function.TRANSFER_OUT,//
 					transferParam.getBillno(), transferParam.getCredit());
 			
 			String params = ReflectUtil.generateParam(vo);
 			message.append(" 转账地址：").append(entity.getReportUrl()).append("\n");
 			message.append(" 转账参数：").append(params).append("\n");
-			String result = StringsUtil.sendGet(entity.getReportUrl(), params);
+			String result = StringsUtil.sendGet(H8Constants.URL, params);
 			message.append(" 转账接口返回：").append(result).append("\n");
 			
 			XmlUtil xml = new XmlUtil(result);
@@ -137,7 +137,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			message.append("H8 qeuryBalance 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername()).append("\n");
 			//查询余额
-			H8TransferVo vo = new H8TransferVo(entity.getSecret(), entity.getAgent(), username, H8Constants.function.QUERY_BALANCE);
+			H8TransferVo vo = new H8TransferVo(entity.getPassword(), entity.getAgent(), username, H8Constants.function.QUERY_BALANCE);
 			String queryParam = ReflectUtil.generateParam(vo);
 			
 			message.append("请求地址：").append(entity.getReportUrl()).append("\n");
@@ -191,7 +191,8 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				String[] hostArr = entity.getH8Host().split("\\.");
 				entity.setH8Host(hostArr[0]+"mobi"+"."+hostArr[1]+"."+hostArr[2]);
 			}
-			H8TransferVo vo = new H8TransferVo(entity.getSecret(), entity.getAgent(), username, param.getAction(),//
+			entity.setH8Host(H8Constants.HOST);
+			H8TransferVo vo = new H8TransferVo(entity.getPassword(), entity.getAgent(), username, param.getAction(),//
 					entity.getH8Host(), param.getLanguage(), param.getAccType());
 			result = ReflectUtil.generateParam(vo);
 			message.append(" 登录地址：").append(entity.getReportUrl()).append("\n");
@@ -404,7 +405,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			createMessage.append("H8 createMember 站点：").append(entity.getSiteId());
 			createMessage.append(",会员：").append(username);
-			H8TransferVo vo = new H8TransferVo(entity.getSecret(), entity.getAgent(), username, H8Constants.function.CREATE_MEMBER);
+			H8TransferVo vo = new H8TransferVo(entity.getPassword(), entity.getAgent(), username, H8Constants.function.CREATE_MEMBER);
 			result = ReflectUtil.generateParam(vo);
 			createMessage.append("请求地址：").append(entity.getReportUrl()).append("\n");
 			createMessage.append("请求参数：").append(result).append("\n");

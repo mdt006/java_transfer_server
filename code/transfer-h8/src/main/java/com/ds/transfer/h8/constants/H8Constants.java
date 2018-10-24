@@ -13,6 +13,8 @@ public interface H8Constants {
 	String COMTYPE_A = "A";
 	String LANG = "zh-cn";
 	String LOGIN_ACC_TYPE = "HK";
+	String HOST="hgqmnhoy.msports8.com";
+	String URL="http://apiweb2.mywinday.com/api.aspx/api.aspx";
 	int COM1 = 0;
 	int COM2 = 0;
 	int COM3 = 0;

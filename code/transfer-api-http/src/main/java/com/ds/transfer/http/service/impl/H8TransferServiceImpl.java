@@ -27,7 +27,7 @@ import com.ds.transfer.http.vo.ds.TotalBalanceParam;
 import com.ds.transfer.record.entity.ApiInfoEntity;
 import com.ds.transfer.record.entity.H8ApiUserEntity;
 
-/*@Service("h8TransferServiceImpl")*/
+@Service("h8TransferServiceImpl")
 public class H8TransferServiceImpl extends CommonTransferService implements H8TransferService<H8ApiUserEntity> {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

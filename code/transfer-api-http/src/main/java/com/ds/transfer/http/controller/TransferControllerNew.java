@@ -60,6 +60,9 @@ public class TransferControllerNew extends BaseController {
 	@Resource(name = "h8TransferServiceImpl")
 	private H8TransferService<H8ApiUserEntity> h8TransferService;
 
+	@Resource(name="kyTransferServiceImpl")
+	private KyTransferService<LmgApiUserEntity> kyTransferService;
+
 	/*@Resource(name = "ogTransferServiceImpl")
 	private OgTransferService<OgApiUserEntity> ogTransferService;
 
@@ -86,8 +89,7 @@ public class TransferControllerNew extends BaseController {
 	
 
 	
-	@Resource(name="kyTransferServiceImpl")
-	private KyTransferService<LmgApiUserEntity> kyTransferService;
+
 	
 	@Resource(name="sgsTransferServiceImpl")
 	private SgsTransferService<SgsApiUserEntity> sgsTransferService;
@@ -368,6 +370,7 @@ public class TransferControllerNew extends BaseController {
 	@RequestMapping(value = "queryBalance", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String queryBalance(String username, String siteId,String live,
 			String cur,String key,String playerIp,String terminal,HttpServletRequest request) {
+
 		logger.info("查询余额 : username={},siteId={},live={},cur={},key={},playerIp={}",username, siteId, live, cur, key,playerIp);
 		String ip = StringsUtil.getIpAddr(request);// 获取请求的 ip
 		String isDemo = PropsUtil.getProperty("isDemo");
@@ -560,6 +563,17 @@ public class TransferControllerNew extends BaseController {
 				result = this.h8TransferService.login(loginParam);
 				logger.info("h8 login return result = {}", result);
 				return result;
+			}else if(SysConstants.LiveId.KY.equals(live)){
+				String gamekind = request.getParameter("gameKind");
+				String gamecode = request.getParameter("gameCode");
+				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE_Chinese : lang;
+				logger.info("KY login : lang = {}, gameType = {}, gamekind = {}, gamecode = {}", lang, gameType, gamekind, gamecode);
+				LoginParam loginParam = new LoginParam(entity, username);
+				loginParam.setLanguage(lang);
+				loginParam.setGamecode(gamecode);
+				result = this.kyTransferService.login(loginParam);
+				logger.info("KY 大厅 return result = {}", result);
+				return result;
 			}
 			/*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
@@ -710,17 +724,6 @@ public class TransferControllerNew extends BaseController {
 				loginParam.setPageSite(pageSite);
 				result = this.ptTransferService.login(loginParam);
 				logger.info("PT 大厅 return result = {}", result);
-				return result;
-			}else if(SysConstants.LiveId.KY.equals(live)){
-				String gamekind = request.getParameter("gameKind");
-				String gamecode = request.getParameter("gameCode");
-				lang = StringsUtil.isNull(lang) ? SysConstants.LANGUAGE_Chinese : lang;
-				logger.info("KY login : lang = {}, gameType = {}, gamekind = {}, gamecode = {}", lang, gameType, gamekind, gamecode);
-				LoginParam loginParam = new LoginParam(entity, username);
-				loginParam.setLanguage(lang);
-				loginParam.setGamecode(gamecode);
-				result = this.kyTransferService.login(loginParam);
-				logger.info("KY 大厅 return result = {}", result);
 				return result;
 			}else if(SysConstants.LiveId.SGS.equals(live)){
 				String gamecode = request.getParameter("gameCode");

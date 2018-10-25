@@ -82,9 +82,8 @@ public class Main {
 	}
 
 	private static void loadSomething() {
-		PropertyConfigurator.configure("resource" + File.separator + "log4j.properties");
-//		FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("resource" + File.separator + "applicationContext.xml");
-		FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("resource" + File.separator + "applicationContext.xml");
+		PropertyConfigurator.configure(ClassLoader.getSystemResource("log4j.properties"));
+		FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("classpath:applicationContext.xml");
 		context.start();
 	}
 

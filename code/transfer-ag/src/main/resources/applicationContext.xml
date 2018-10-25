@@ -10,7 +10,7 @@
 	<import resource="applicationContext-provider.xml" />
 
 	<!-- 使用外部的配置文件 -->
-	<context:property-placeholder location="classpath*:jdbc.properties" />
+	<context:property-placeholder location="classpath*:jdbc.properties,classpath*:ag.properties" />
 	<!--<context:property-placeholder location="file:F:\project\transfer_server\code\jdbc.properties,file:F:\project\transfer_server\code\transfer-ag\resource\ag.properties" />-->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}"></property>

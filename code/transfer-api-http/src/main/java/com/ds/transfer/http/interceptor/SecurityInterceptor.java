@@ -84,6 +84,8 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
+		logger.info("当前preHandle方法获取的IP列表："+whiteList);
+		logger.info("当前ipValid："+PropsUtil.getProperty("ipValid"));
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			String ip = this.getIpAddr(request);

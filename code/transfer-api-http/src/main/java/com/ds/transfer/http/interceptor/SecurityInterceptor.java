@@ -87,6 +87,9 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			String ip = this.getIpAddr(request);
+			logger.info("当前preHandle方法获取的IP列表："+whiteList);
+			logger.info("当前ipValid："+PropsUtil.getProperty("ipValid"));
+			logger.info("当前获取到的ip："+ip);
 			if (Boolean.valueOf(PropsUtil.getProperty("ipValid"))) {
 				if(whiteList !=null && whiteList.size()>0){
 					for (int i = 0; i < whiteList.size(); i++) {

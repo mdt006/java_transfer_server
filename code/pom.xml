@@ -15,13 +15,13 @@
 		<spring.version>4.0.4.RELEASE</spring.version>
 	</properties>
 	<modules>
-		<!--<module>transfer-common</module>-->
+		<module>transfer-common</module>
 		<module>transfer-ag</module>
 		<module>transfer-bbin</module>
 		<module>transfer-lmg</module>
 		<module>transfer-h8</module>
+		<module>transfer-lotto_xiaoyu</module>
 <!--      <module>transfer-lotto_fenfen</module>
-          <module>transfer-lotto_xiaoyu</module>
           <module>transfer-mg</module>
           -->
 		<module>transfer-money</module>

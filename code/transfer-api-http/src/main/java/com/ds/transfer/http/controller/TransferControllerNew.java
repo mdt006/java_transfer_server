@@ -560,6 +560,42 @@ public class TransferControllerNew extends BaseController {
 				result = this.h8TransferService.login(loginParam);
 				logger.info("h8 login return result = {}", result);
 				return result;
+			}else if (SysConstants.LiveId.XIAOYU.equals(live)) { // 经典彩登录,2017-06-27新增幸运 彩 对外
+				String lottoType = request.getParameter("lottoType");
+				String loginChannel = request.getParameter("loginChannel");
+				logger.info("xiaoyu login type = {} loginChannel={}", lottoType, loginChannel);
+				// LOTTERY时时彩|LOTTO香港彩|DS大厅登录|fenfen分分彩|xiaoyu经典彩
+				if (StringsUtil.isNull(gameType)) {
+					resultMap.put(STATUS, PARAM_FORMAT_ERROR);
+					resultMap.put(MESSAGE, "gameType is null");
+					return JSONUtils.map2Json(resultMap);
+				}
+				TransferService<?> transferService = transferServiceMap.get(gameType);
+				if (transferService != null) {
+					resultMap.clear();
+					lottoTray = StringsUtil.isNull(lottoTray) ? "A" : lottoTray;
+					if (StringsUtil.isNull(lottoTray)) {
+						resultMap.put(STATUS, LOTTO_TRAY_NO_NULL);
+						resultMap.put(MESSAGE, "lotto tray is null");
+					}
+					entity.setSiteId(Integer.valueOf(xiaoyuSiteId)); // 设置经典彩siteId
+					LoginParam param = new LoginParam(entity, username);
+					param.setAccType(request.getParameter("accType")); // 层级
+					param.setOddType(request.getParameter("oddType"));
+					param.setLottoTray(request.getParameter("lottoTray"));
+					param.setLoginUrl(request.getParameter("loginUrl"));
+					param.setTerminal("MP".equals(lottoType) ? lottoType : "PC");
+					param.setUsername(username);
+					param.setPlatformURL(platformURL);
+					param.setLid(lid);
+					param.setLoginAssignType(loginChannel);
+					result = transferService.login(param);
+					logger.info("彩种 = {}, login:{}return result : {}", gameType, loginChannel, result);
+					return result;
+				}
+			} else {
+				resultMap.put(STATUS, PARAM_FORMAT_ERROR);
+				resultMap.put(MESSAGE, "live isn't process way");
 			}
 			/*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
@@ -751,10 +787,7 @@ public class TransferControllerNew extends BaseController {
 				result = this.kkwTransferService.login(loginParam);
 				logger.info("KKW 大厅 return username={},gameType={} result = {}",username,gameType,result);
 				return result;
-			}*/else {
-				resultMap.put(STATUS, PARAM_FORMAT_ERROR);
-				resultMap.put(MESSAGE, "live isn't process way");
-			}
+			}*/
 		} catch (Exception e) {
 			logger.error("login error : ", e);
 			resultMap.put(STATUS, MAYBE);

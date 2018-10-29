@@ -32,6 +32,11 @@
 	<!-- h8体育 -->
 	<dubbo:reference id="h8Transfer" interface="com.ds.transfer.common.service.TransferService"
 		group="h8" version="1.0.0" owner="jackson" timeout="60000" />
+
+	<!--经典彩-->
+	<dubbo:reference id="xiaoyuLotto" interface="com.ds.transfer.common.service.TransferService"
+					 group="lotto_xiaoyu" version="1.0.0" owner="jackson" timeout="60000" />
+
 	<!--
 	&lt;!&ndash; og视讯 &ndash;&gt;
 	<dubbo:reference id="ogTransfer" interface="com.ds.transfer.common.service.TransferService" 
@@ -44,11 +49,7 @@
 	&lt;!&ndash; 分分彩 &ndash;&gt;
 	<dubbo:reference id="fenfenLotto" interface="com.ds.transfer.common.service.TransferService" 
 		group="lotto_fenfen" version="1.0.0" owner="jackson" timeout="60000" />
-		
-	&lt;!&ndash; 经典彩 &ndash;&gt;
-	<dubbo:reference id="xiaoyuLotto" interface="com.ds.transfer.common.service.TransferService" 
-		group="lotto_xiaoyu" version="1.0.0" owner="jackson" timeout="60000" />
-		
+
 	&lt;!&ndash; pt 电子 &ndash;&gt;
 	<dubbo:reference id="ptTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="pt" version="1.0.0" owner="jackson" timeout="60000" />

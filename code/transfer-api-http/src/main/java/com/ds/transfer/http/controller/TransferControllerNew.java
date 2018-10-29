@@ -57,8 +57,12 @@ public class TransferControllerNew extends BaseController {
 
 	@Resource(name="lmgTransferServiceImpl")
 	private LmgTransferService<LmgApiUserEntity> lmgTransferService;
+
 	@Resource(name = "h8TransferServiceImpl")
 	private H8TransferService<H8ApiUserEntity> h8TransferService;
+
+	@Resource(name = "xiaoyuTransferServiceImpl")
+	private XiaoyuTransferService<?> xiaoyuTransferService;
 
 	/*@Resource(name = "ogTransferServiceImpl")
 	private OgTransferService<OgApiUserEntity> ogTransferService;
@@ -68,9 +72,6 @@ public class TransferControllerNew extends BaseController {
 
 	@Resource(name = "fenfenTransferServiceImpl")
 	private FenfenTransferService<?> fenfenTransferService;
-
-	@Resource(name = "xiaoyuTransferServiceImpl")
-	private XiaoyuTransferService<?> xiaoyuTransferService;
 
 	@Resource(name = "transferRecordDetailServiceImpl")
 	private TransferRecordDetailService transferRecordDetailService;
@@ -83,8 +84,6 @@ public class TransferControllerNew extends BaseController {
 	
 	@Resource(name="ptTransferServiceImpl")
 	private PtTransferService<PtApiUserEntity> ptTransferService;
-	
-
 	
 	@Resource(name="kyTransferServiceImpl")
 	private KyTransferService<LmgApiUserEntity> kyTransferService;

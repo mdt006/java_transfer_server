@@ -23,60 +23,73 @@
   		<version>0.0.2</version>
   	</dependency>
   </dependencies>
-  <build>
-        <resources>
-            <resource>
-                <directory>resource</directory>
-                <targetPath>${project.build.directory}/classes/resource</targetPath>
-            </resource>
-        </resources>
+    <build>
         <plugins>
+            <!-- 项目资源文件copy到target外面，方便发布修改配置 -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/resource</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>resource</directory>
+                                    <filtering>true</filtering>
+                                    <!-- <excludes>
+                                         <exclude>conf/*</exclude>
+                                     </excludes>-->
+                                </resource>
+                                <!--  <resource>
+                                      &lt;!&ndash; 将配置文件覆盖resources下面的applicationContext，后期发布就不需要更改路径 &ndash;&gt;
+                                      <directory>src/main/resources/conf</directory>
+                                      <filtering>true</filtering>
+                                      <includes>
+                                          <include>applicationContext.xml</include>
+                                      </includes>
+                                  </resource>-->
+                            </resources>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 把依赖包打到外面 -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
                 <configuration>
                     <archive>
-                        <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>transfer-xiaoyu_lib/</classpathPrefix>
-                            <mainClass>com.ds.transfer.xiaoyu.main.Main</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.ds.transfer.lmg.main.Main</mainClass>
                         </manifest>
                     </archive>
-                    <excludes>
-                        <exclude>src/main/resources/zip.xml</exclude>
-                    </excludes>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/main/resources/zip.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

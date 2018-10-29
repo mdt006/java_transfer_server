@@ -84,6 +84,7 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
+		/*
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			String ip = this.getIpAddr(request);
@@ -113,7 +114,7 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 			}
 		} catch (Exception e) {
 			logger.error("拦截器异常！",e);
-		}
+		}*/
 		return true;
 		//return false;  测试环境全部开放权限
 	}

@@ -86,7 +86,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.ds.transfer.lmg.main.Main</mainClass>
+                            <mainClass>com.ds.transfer.xiaoyu.main.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

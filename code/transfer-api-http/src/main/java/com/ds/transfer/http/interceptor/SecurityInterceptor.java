@@ -33,7 +33,7 @@ import com.ds.transfer.record.mapper.TransferRemarkConfEntityMapper;
  * @author leo
  * @date 2018年5月23日
  */
-@Component
+/*@Component*/
 public class SecurityInterceptor extends BaseController implements HandlerInterceptor {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -50,14 +50,9 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 		dsIpExample.createCriteria().andStateEqualTo(50);
 		List<DsIpList> ipList = dsIpListMapper.selectByExample(dsIpExample);
 		whiteList = ipList;
-		StringBuffer sb = new StringBuffer();
-		for(DsIpList ip : ipList){
-			sb.append(ip.getIp()+",	");
-		}
-		logger.info("ip列表："+sb.toString());
 		logger.info("初始化白名单IP完成！");
 	}
-	
+
 	@PostConstruct
 	@Scheduled(cron = "${spring.schedule}")
 	public void initTransferRemark(){

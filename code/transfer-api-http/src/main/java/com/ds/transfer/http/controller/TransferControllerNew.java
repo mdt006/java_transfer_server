@@ -33,6 +33,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.*;
@@ -63,6 +64,9 @@ public class TransferControllerNew extends BaseController {
 	@Resource(name="kyTransferServiceImpl")
 	private KyTransferService<LmgApiUserEntity> kyTransferService;
 
+	@Resource(name = "xiaoyuTransferServiceImpl")
+	private XiaoyuTransferService<?> xiaoyuTransferService;
+
 	/*@Resource(name = "ogTransferServiceImpl")
 	private OgTransferService<OgApiUserEntity> ogTransferService;
 
@@ -71,9 +75,6 @@ public class TransferControllerNew extends BaseController {
 
 	@Resource(name = "fenfenTransferServiceImpl")
 	private FenfenTransferService<?> fenfenTransferService;
-
-	@Resource(name = "xiaoyuTransferServiceImpl")
-	private XiaoyuTransferService<?> xiaoyuTransferService;
 
 	@Resource(name = "transferRecordDetailServiceImpl")
 	private TransferRecordDetailService transferRecordDetailService;
@@ -86,11 +87,7 @@ public class TransferControllerNew extends BaseController {
 	
 	@Resource(name="ptTransferServiceImpl")
 	private PtTransferService<PtApiUserEntity> ptTransferService;
-	
 
-	
-
-	
 	@Resource(name="sgsTransferServiceImpl")
 	private SgsTransferService<SgsApiUserEntity> sgsTransferService;
 	
@@ -215,7 +212,7 @@ public class TransferControllerNew extends BaseController {
 				return JSONUtils.map2Json(resultMap);
 			}
 
-			logger.info("转账接口#######参数::::username:" + username + "#keyB#" + firstEntity.getKeyb() + "#时间#"+ StringsUtil.updateTime());
+			logger.info("转账接口#######参数::::username:" + username + "#keyB#" + firstEntity.getKeyb() + "#时间#"+ updateTime());
 			if (!validKey(username, key, firstEntity)) {// md5验证
 				logger.info("md5 is error");
 				resultMap.put(STATUS, PARAM_FORMAT_ERROR);// 用户名
@@ -441,7 +438,6 @@ public class TransferControllerNew extends BaseController {
 	 * @param gameType
 	 * @param cur
 	 * @param lang
-	 * @param isDemo
 	 * @param key
 	 * @param xiaoyuSiteId
 	 * 经典彩的分公司id (仅经典彩对外使用)
@@ -449,7 +445,7 @@ public class TransferControllerNew extends BaseController {
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String login(String username, String siteId, String live, String lottoTray, String gameType, //
-			String cur, String lang,String key, String xiaoyuSiteId,String lid,String platformURL,String app_id,
+			String cur, String lang,String key, String lid,String platformURL,String app_id,
 			String playerIp,String terminal,HttpServletRequest request, HttpServletResponse response) {
 
 		String ip = StringsUtil.getIpAddr(request);
@@ -574,6 +570,39 @@ public class TransferControllerNew extends BaseController {
 				result = this.kyTransferService.login(loginParam);
 				logger.info("KY 大厅 return result = {}", result);
 				return result;
+			}else if (SysConstants.LiveId.XIAOYU.equals(live)) { // 经典彩登录,2017-06-27新增幸运 彩 对外
+				String lottoType = request.getParameter("lottoType");
+				String loginChannel = request.getParameter("loginChannel");
+				logger.info("xiaoyu login type = {} loginChannel={}", lottoType, loginChannel);
+				// LOTTERY时时彩|LOTTO香港彩|DS大厅登录|fenfen分分彩|xiaoyu经典彩
+				if (StringsUtil.isNull(gameType)) {
+					resultMap.put(STATUS, PARAM_FORMAT_ERROR);
+					resultMap.put(MESSAGE, "gameType is null");
+					return JSONUtils.map2Json(resultMap);
+				}
+				TransferService<?> transferService = transferServiceMap.get(gameType);
+				if (transferService != null) {
+					resultMap.clear();
+					lottoTray = StringsUtil.isNull(lottoTray) ? "A" : lottoTray;
+					if (StringsUtil.isNull(lottoTray)) {
+						resultMap.put(STATUS, LOTTO_TRAY_NO_NULL);
+						resultMap.put(MESSAGE, "lotto tray is null");
+					}
+					entity.setSiteId(Integer.valueOf(siteId)); // 设置经典彩siteId
+					LoginParam param = new LoginParam(entity, username);
+					param.setAccType(request.getParameter("accType")); // 层级
+					param.setOddType(request.getParameter("oddType"));
+					param.setLottoTray(request.getParameter("lottoTray"));
+					param.setLoginUrl(request.getParameter("loginUrl"));
+					param.setTerminal("MP".equals(lottoType) ? lottoType : "PC");
+					param.setUsername(username);
+					param.setPlatformURL(platformURL);
+					param.setLid(lid);
+					param.setLoginAssignType(loginChannel);
+					result = transferService.login(param);
+					logger.info("彩种 = {}, login:{}return result : {}", gameType,loginChannel,result);
+					return result;
+				}
 			}
 			/*else if (SysConstants.LiveId.DS.equals(live)) {// gameType:lotto|lottery
 				String lottoType = request.getParameter("lottoType");// PC|PM
@@ -679,39 +708,6 @@ public class TransferControllerNew extends BaseController {
 					return JSONUtils.map2Json(map);
 				}
 				return result;
-			}else if (SysConstants.LiveId.XIAOYU.equals(live)) { // 经典彩登录,2017-06-27新增幸运 彩 对外
-				String lottoType = request.getParameter("lottoType");
-				String loginChannel = request.getParameter("loginChannel");
-				logger.info("xiaoyu login type = {} loginChannel={}", lottoType, loginChannel);
-				// LOTTERY时时彩|LOTTO香港彩|DS大厅登录|fenfen分分彩|xiaoyu经典彩
-				if (StringsUtil.isNull(gameType)) {
-					resultMap.put(STATUS, PARAM_FORMAT_ERROR);
-					resultMap.put(MESSAGE, "gameType is null");
-					return JSONUtils.map2Json(resultMap);
-				}
-				TransferService<?> transferService = transferServiceMap.get(gameType);
-				if (transferService != null) {
-					resultMap.clear();
-					lottoTray = StringsUtil.isNull(lottoTray) ? "A" : lottoTray;
-					if (StringsUtil.isNull(lottoTray)) {
-						resultMap.put(STATUS, LOTTO_TRAY_NO_NULL);
-						resultMap.put(MESSAGE, "lotto tray is null");
-					}
-					entity.setSiteId(Integer.valueOf(xiaoyuSiteId)); // 设置经典彩siteId
-					LoginParam param = new LoginParam(entity, username);
-					param.setAccType(request.getParameter("accType")); // 层级
-					param.setOddType(request.getParameter("oddType"));
-					param.setLottoTray(request.getParameter("lottoTray"));
-					param.setLoginUrl(request.getParameter("loginUrl"));
-					param.setTerminal("MP".equals(lottoType) ? lottoType : "PC");
-					param.setUsername(username);
-					param.setPlatformURL(platformURL);
-					param.setLid(lid);
-					param.setLoginAssignType(loginChannel);
-					result = transferService.login(param);
-					logger.info("彩种 = {}, login:{}return result : {}", gameType,loginChannel,result);
-					return result;
-				}
 			}else if(SysConstants.LiveId.PT.equals(live)){
 				String pageSite = request.getParameter("pageSite");
 				String gamekind = request.getParameter("gameKind");
@@ -1032,7 +1028,7 @@ public class TransferControllerNew extends BaseController {
 	 */
 	private boolean validKey(String username, String key, ApiInfoEntity entity) {
 		StringBuilder keyParam = new StringBuilder();
-		keyParam.append(username).append(entity.getKeyb()).append(StringsUtil.updateTime());
+		keyParam.append(username).append(entity.getKeyb()).append(updateTime());
 		key = key.substring(4, key.length() - 1);
 		return key.equals(StringsUtil.toMD5(keyParam.toString()));
 	}
@@ -1064,6 +1060,17 @@ public class TransferControllerNew extends BaseController {
 			return JSONUtils.map2Json(resultMap);
 		}
 		return null;
+	}
+
+	/**
+	 * 获取当天美东时间
+	 * @return
+	 */
+	public String updateTime(){
+		TimeZone timeZone = TimeZone.getTimeZone("GMT-4:00");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		simpleDateFormat.setTimeZone(timeZone);
+		return simpleDateFormat.format(new Date());
 	}
 }
 

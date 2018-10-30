@@ -50,11 +50,19 @@
 	&lt;!&ndash; 分分彩 &ndash;&gt;
 	<dubbo:reference id="fenfenLotto" interface="com.ds.transfer.common.service.TransferService" 
 		group="lotto_fenfen" version="1.0.0" owner="jackson" timeout="60000" />
-
+		
+	&lt;!&ndash; 经典彩 &ndash;&gt;
+	<dubbo:reference id="xiaoyuLotto" interface="com.ds.transfer.common.service.TransferService" 
+		group="lotto_xiaoyu" version="1.0.0" owner="jackson" timeout="60000" />
+		
 	&lt;!&ndash; pt 电子 &ndash;&gt;
 	<dubbo:reference id="ptTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="pt" version="1.0.0" owner="jackson" timeout="60000" />
 
+	&lt;!&ndash; ky &ndash;&gt;
+	<dubbo:reference id="kyTransfer" interface="com.ds.transfer.common.service.TransferService" 
+		group="ky" version="1.0.0" owner="jackson" timeout="60000" />
+	
 	&lt;!&ndash; sgs &ndash;&gt;
 	<dubbo:reference id="sgsTransfer" interface="com.ds.transfer.common.service.TransferService" 
 		group="sgs" version="1.0.0" owner="jackson" timeout="60000" />

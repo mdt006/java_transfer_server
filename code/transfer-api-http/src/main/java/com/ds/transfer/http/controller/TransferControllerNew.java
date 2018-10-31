@@ -1068,7 +1068,7 @@ public class TransferControllerNew extends BaseController {
      */
     public String updateTime(){
         TimeZone timeZone = TimeZone.getTimeZone("GMT-4:00");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         simpleDateFormat.setTimeZone(timeZone);
         return simpleDateFormat.format(new Date());
     }

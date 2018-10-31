@@ -33,18 +33,18 @@ import com.ds.transfer.record.mapper.TransferRemarkConfEntityMapper;
  * @author leo
  * @date 2018年5月23日
  */
-/*@Component*/
+@Component
 public class SecurityInterceptor extends BaseController implements HandlerInterceptor {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	public List<DsIpList> whiteList = new ArrayList<DsIpList>();
 	@Autowired
 	private DsIpListMapper dsIpListMapper;
 	@Autowired
 	private TransferRemarkConfEntityMapper transferRemarkMapper;
 
-	@PostConstruct
-	@Scheduled(cron = "${spring.schedule}")
+	/*   @PostConstruct
+       @Scheduled(cron = "${spring.schedule}")*/
 	public void queryIpList() {
 		DsIpListExample dsIpExample = new DsIpListExample();
 		dsIpExample.createCriteria().andStateEqualTo(50);
@@ -79,34 +79,37 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		try {
-			String ip = this.getIpAddr(request);
-			if (Boolean.valueOf(PropsUtil.getProperty("ipValid"))) {
-				if(whiteList !=null && whiteList.size()>0){
-					for (int i = 0; i < whiteList.size(); i++) {
-						DsIpList dsIpList = whiteList.get(i);
-						if (!dsIpList.getIp().equals(ip)) {
-							resultMap.clear();
-							resultMap.put(STATUS, IP_NOT_ALLOW);
-							resultMap.put(MESSAGE, "ip is not allowed");
-						} else {
-							return true;
-						}
-					}
-				}else{
-					resultMap.put(STATUS, IP_NOT_ALLOW);
-					resultMap.put(MESSAGE, "ip is not allowed");
-				}
-				PrintWriter out = response.getWriter();
-				out.write(JSONUtils.map2Json(resultMap));
-				out.flush();
-				logger.info("ip={} 不在白名单内，result={}",ip,JSONUtils.map2Json(resultMap));
-			}
-		} catch (Exception e) {
-			logger.error("拦截器异常！",e);
-		}
-		return false;
+        /*logger.info("当前preHandle方法获取的IP列表："+whiteList);
+        logger.info("当前ipValid："+PropsUtil.getProperty("ipValid"));
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        try {
+            String ip = this.getIpAddr(request);
+            if (Boolean.valueOf(PropsUtil.getProperty("ipValid"))) {
+                if(whiteList !=null && whiteList.size()>0){
+                    for (int i = 0; i < whiteList.size(); i++) {
+                        DsIpList dsIpList = whiteList.get(i);
+                        if (!dsIpList.getIp().equals(ip)) {
+                            resultMap.clear();
+                            resultMap.put(STATUS, IP_NOT_ALLOW);
+                            resultMap.put(MESSAGE, "ip is not allowed");
+                        } else {
+                            return true;
+                        }
+                    }
+                }else{
+                    resultMap.put(STATUS, IP_NOT_ALLOW);
+                    resultMap.put(MESSAGE, "ip is not allowed");
+                }
+                PrintWriter out = response.getWriter();
+                out.write(JSONUtils.map2Json(resultMap));
+                out.flush();
+                logger.info("ip={} 不在白名单内，result={}",ip,JSONUtils.map2Json(resultMap));
+            }
+        } catch (Exception e) {
+            logger.error("拦截器异常！",e);
+        }
+        return false;*/
+		return true;
 	}
 
 	/**
@@ -152,14 +155,14 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 
 	@Override
 	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
+						   HttpServletResponse response, Object handler,
+						   ModelAndView modelAndView) throws Exception {
 
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
+								HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 
 	}

@@ -82,6 +82,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			//RSA加密
 			byte[] RsaEncrypt = RSAUtil.encrypt(jsonParams);
 			//BASE64加密
+			logger.info("Base64.encodeBase64String(RsaEncrypt) = {}",Base64.encodeBase64String(RsaEncrypt));
 			String base64Str = Base64.encodeBase64String(RsaEncrypt).replace("\n", "");
 			String loginParam = URLEncoder.encode(base64Str,"utf-8");
 			String encrypt = generateJdKey(lev);

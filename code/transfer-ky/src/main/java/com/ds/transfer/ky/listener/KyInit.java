@@ -18,7 +18,8 @@ public class KyInit {
 	static {
 		try {
 			logger.info("KyInit start!");
-			props.load(new FileInputStream("resource/ky.properties"));
+//			props.load(new FileInputStream("resource/ky.properties"));
+			props.load(ClassLoader.getSystemResourceAsStream("ky.properties"));
 			initKyConstants();
 			logger.info(KyConstants.print());
 		} catch (Exception e) {

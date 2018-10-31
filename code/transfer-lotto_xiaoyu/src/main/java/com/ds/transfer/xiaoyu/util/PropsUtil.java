@@ -11,7 +11,8 @@ public class PropsUtil {
 
 	static {
 		try {
-			props.load(new FileInputStream(new File("resource" + File.separator + "xiaoyu.properties")));
+			//props.load(new FileInputStream(new File("resource" + File.separator + "xiaoyu.properties")));
+			props.load(ClassLoader.getSystemResourceAsStream("xiaoyu.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

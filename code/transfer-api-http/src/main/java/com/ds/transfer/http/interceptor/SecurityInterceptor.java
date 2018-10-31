@@ -33,7 +33,7 @@ import com.ds.transfer.record.mapper.TransferRemarkConfEntityMapper;
  * @author leo
  * @date 2018年5月23日
  */
-/*@Component*/
+@Component
 public class SecurityInterceptor extends BaseController implements HandlerInterceptor {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -43,8 +43,8 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
     @Autowired
     private TransferRemarkConfEntityMapper transferRemarkMapper;
 
-    @PostConstruct
-    @Scheduled(cron = "${spring.schedule}")
+ /*   @PostConstruct
+    @Scheduled(cron = "${spring.schedule}")*/
     public void queryIpList() {
         DsIpListExample dsIpExample = new DsIpListExample();
         dsIpExample.createCriteria().andStateEqualTo(50);
@@ -79,7 +79,7 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
 
     @Override
     public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
-        logger.info("当前preHandle方法获取的IP列表："+whiteList);
+        /*logger.info("当前preHandle方法获取的IP列表："+whiteList);
         logger.info("当前ipValid："+PropsUtil.getProperty("ipValid"));
         Map<String, Object> resultMap = new HashMap<String, Object>();
         try {
@@ -108,7 +108,8 @@ public class SecurityInterceptor extends BaseController implements HandlerInterc
         } catch (Exception e) {
             logger.error("拦截器异常！",e);
         }
-        return false;
+        return false;*/
+        return true;
     }
 
     /**

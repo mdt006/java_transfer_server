@@ -74,14 +74,16 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			lev.setU(param.getUsername());
 			lev.setSi(entity.getSiteId());
 			lev.setUt(param.getAccType());
-			lev.setP( param.getLottoTray());
+			lev.setP(param.getLottoTray());
 			lev.setIt((1 == entity.getIsDemo().intValue()) ? 0 : 1);
 			lev.setTs(System.currentTimeMillis());
 			String jsonParams = JSONObject.toJSONString(lev);
 			logger.info("jingdian login encrypt Before param = {}",jsonParams);
 			//RSA加密
 			byte[] RsaEncrypt = RSAUtil.encrypt(jsonParams);
+			logger.info("RsaEncrypt = {}",RsaEncrypt);
 			//BASE64加密
+			logger.info("Base64.encodeBase64String(RsaEncrypt) = {}",Base64.encodeBase64String(RsaEncrypt));
 			String base64Str = Base64.encodeBase64String(RsaEncrypt).replace("\n", "");
 			String loginParam = URLEncoder.encode(base64Str,"utf-8");
 			String encrypt = generateJdKey(lev);
@@ -94,7 +96,12 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			messageMap.put("platformURL",param.getPlatformURL());
 			messageMap.put("url",StringsUtil.isNull(loginUrl)==true?lottoURlArr:Arrays.asList(loginUrl));
 			messageMap.put("params", paramsMap);
-			
+			//加入query参数
+			StringBuffer sb = new StringBuffer();
+			sb.append("user=").append(param.getUsername()).append("&").append("siteId=").append(entity.getSiteId()).append("&");
+			sb.append("istest=").append(entity.getIsDemo()).append("&").append("usertree=").append(param.getAccType()).append("&").append("pan=").append(param.getLottoTray());
+			messageMap.put("query",sb.toString());
+
 			resultMap.put("message", messageMap);
 			resultMap.put("status", SUCCESS);
 			logger.info("login jigndian siteId={},username={}, result = {}",

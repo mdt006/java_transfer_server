@@ -99,11 +99,11 @@
           p:basename="classpath:messages" p:fallbackToSystemLocale="false"
           p:cacheSeconds="3000" />
 	
-<!--	<mvc:interceptors>
+	<mvc:interceptors>
 	    <mvc:interceptor>
-	    	&lt;!&ndash; 将拦截所有的Controller &ndash;&gt;
+	    	<!-- 将拦截所有的Controller -->
 	       <mvc:mapping path="/**" />
 	       <bean class="com.ds.transfer.http.interceptor.SecurityInterceptor"></bean>
 	    </mvc:interceptor>
-	</mvc:interceptors>-->
+	</mvc:interceptors>
 </beans>

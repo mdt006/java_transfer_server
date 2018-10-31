@@ -1,7 +1,5 @@
 package com.ds.transfer.money.util;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,7 +9,7 @@ public class PropsUtil {
 
 	static {
 		try {
-			props.load(new FileInputStream(new File("resource/money.properties")));
+			props.load(ClassLoader.getSystemResourceAsStream("money.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -20,5 +18,5 @@ public class PropsUtil {
 	public static String getProperty(String key) {
 		return props.getProperty(key);
 	}
-	
+
 }

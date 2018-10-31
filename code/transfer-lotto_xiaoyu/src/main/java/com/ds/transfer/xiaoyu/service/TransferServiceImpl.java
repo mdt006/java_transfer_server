@@ -81,6 +81,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			logger.info("jingdian login encrypt Before param = {}",jsonParams);
 			//RSA加密
 			byte[] RsaEncrypt = RSAUtil.encrypt(jsonParams);
+			logger.info("RsaEncrypt = {}",RsaEncrypt);
 			//BASE64加密
 			logger.info("Base64.encodeBase64String(RsaEncrypt) = {}",Base64.encodeBase64String(RsaEncrypt));
 			String base64Str = Base64.encodeBase64String(RsaEncrypt).replace("\n", "");

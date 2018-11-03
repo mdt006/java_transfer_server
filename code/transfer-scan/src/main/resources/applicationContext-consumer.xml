@@ -22,18 +22,18 @@
 	<dubbo:reference id="bbinTransferService" interface="com.ds.transfer.common.service.TransferService" 
 		group="bbin" version="1.0.0" owner="jackson" />
 		
-	<!--<dubbo:reference id="h8TransferService" interface="com.ds.transfer.common.service.TransferService"
+	<dubbo:reference id="h8TransferService" interface="com.ds.transfer.common.service.TransferService"
 		group="h8" version="1.0.0" owner="jackson" />
 		
-	<dubbo:reference id="ogTransferService" interface="com.ds.transfer.common.service.TransferService" 
-		group="og" version="1.0.0" owner="jackson" />
-	
-	<dubbo:reference id="lmgTransferService" interface="com.ds.transfer.common.service.TransferService" 
+	<dubbo:reference id="lmgTransferService" interface="com.ds.transfer.common.service.TransferService"
 		group="lmg" version="1.0.0" owner="jackson" />
 		
 	<dubbo:reference id="kyTransferService" interface="com.ds.transfer.common.service.TransferService" 
 		group="ky" version="1.0.0" owner="jackson" />
-		
+
+	<!--<dubbo:reference id="ogTransferService" interface="com.ds.transfer.common.service.TransferService"
+					 group="og" version="1.0.0" owner="jackson" />
+
 	<dubbo:reference id="sgsTransferService" interface="com.ds.transfer.common.service.TransferService" 
 		group="sgs" version="1.0.0" owner="jackson" />
 		

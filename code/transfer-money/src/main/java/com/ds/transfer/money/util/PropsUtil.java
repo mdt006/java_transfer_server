@@ -11,7 +11,7 @@ public class PropsUtil {
 
 	static {
 		try {
-			props.load(new FileInputStream(new File("resource/money.properties")));
+			props.load(ClassLoader.getSystemResourceAsStream("money.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

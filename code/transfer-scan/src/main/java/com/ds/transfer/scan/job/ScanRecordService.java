@@ -64,21 +64,21 @@ public class ScanRecordService extends CommonTransferService {
 	@Resource(name = "dsTransferService")
 	private TransferService<?> dsTransferService;
 
-	/*@Resource(name = "h8TransferService")
+	@Resource(name = "h8TransferService")
 	private TransferService<?> h8TransferService;
 
+	@Resource(name = "lmgTransferService")
+	private TransferService<?> lmgTransferService;
+
+	@Resource(name = "kyTransferService")
+	private TransferService<?> kyTransferService;
+/*
 	@Resource(name = "ogTransferService")
 	private TransferService<?> ogTransferService;
 	
 	@Resource(name = "ptTransferService")
 	private TransferService<?> ptTransferService;
-	
-	@Resource(name = "lmgTransferService")
-	private TransferService<?> lmgTransferService;
-	
-	@Resource(name = "kyTransferService")
-	private TransferService<?> kyTransferService;
-	
+
 	@Resource(name = "sgsTransferService")
 	private TransferService<?> sgsTransferService;
 	

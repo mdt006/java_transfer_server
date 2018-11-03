@@ -11,7 +11,7 @@ public class PropsUtil {
 
 	static {
 		try {
-			props.load(new FileInputStream(new File("resource/scan.properties")));
+			props.load(ClassLoader.getSystemResourceAsStream("scan.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

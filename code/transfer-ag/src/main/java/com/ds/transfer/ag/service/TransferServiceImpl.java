@@ -123,19 +123,6 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			message.insert("AG Transfer".length(),"转账异常！").append("\n");
 			telegramMessage.sendMessage(TelegramConstants.BOT_KEY,TelegramConstants.TG_ID,"transfer-ag transfer",message.toString().replace("&", "*"));
 
-			String type = transferParam.getType();
-			if (IN.equals(type)) {
-				logger.info("AG 转入失败,退回DS主账户");
-				transferParam.setRemark("AG 转入失败,退回DS主账户");
-				transferParam.setBillno(transferParam.getBillno() + "F");
-				result = this.moneyCenterService.transfer(transferParam);
-				Map<String, Object> resultMap = JSONUtils.json2Map(result);
-				if (SUCCESS.equals(resultMap.get(STATUS))) {
-					return JSONUtils.map2Json(failure(resultMap, "AG 转入失败:" + msg + ",退回DS主账户"));
-				}
-				logger.info("ag transfer siteId={},username={},ag={}转入ag失败,退回DS调用钱包失败!",entity.getSiteId(),transferParam.getUsername(),transferParam.getBillno());
-			}
-
 		} catch (Exception e) {
 			logger.error("ag转账异常:", e);
 			agRecord = this.transferRecordService.update(SysConstants.Record.TRANS_MAYBE, "AG转账异常", agRecord);

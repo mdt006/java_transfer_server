@@ -11,7 +11,7 @@ public interface BbinConstants {
 	String BBIN = "bbin";
 	String WEB_SITE = "kkw910";
 	String STATE_SUCCESS = "11100";
-	String BBIN_URL = "http://linkapi.s1117.com/app/WebService/JSON/display.php";
+	String BBIN_URL = "http://180.150.154.103/dtapi/app/bbin";
 	String BBIN_URL_LOGIN = "http://888.s1116.com/app/WebService/JSON/display.php";
 	String LIVE_ID = "11";
 	String LANG = "zh-cn";

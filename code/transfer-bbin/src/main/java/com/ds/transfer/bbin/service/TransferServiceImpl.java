@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
+import com.ds.transfer.bbin.util.BBINUtils;
+import com.ds.transfer.bbin.util.EncryptUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,12 +90,15 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			logger.info("BBIN视讯 转账记录插入成功,  id = {}", bbinRecord.getId());
 
 			//2.转账
-			String bbinKey = bbinKey(BbinConstants.WEB_SITE, platformUser, transferParam.getBillno(), BbinConstants.KEYB);
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, platformUser, entity.getAgent(), transferParam.getBillno(), type, Integer.valueOf(transferParam.getCredit()), bbinKey);
+			//String bbinKey = bbinKey(BbinConstants.WEB_SITE, platformUser, transferParam.getBillno(), BbinConstants.KEYB);
+			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, platformUser, entity.getAgent(), transferParam.getBillno(), type, Integer.valueOf(transferParam.getCredit()), null);
 			String param = ReflectUtil.generateParam(vo);
-			message.append(" 转账地址：").append(entity.getReportUrl()+BbinConstants.function.TRANSFER).append("\n");
+			String key = EncryptUtils.encrypt(param, BBINUtils.USERKEY);
+			param=param+"&key="+key;
+
+			message.append(" 转账地址：").append(entity.getBbinUrl()+BbinConstants.function.TRANSFER).append("\n");
 			message.append(" 转账参数：").append(param).append("\n");
-			String result = StringsUtil.sendPost1(entity.getReportUrl() + BbinConstants.function.TRANSFER, param);
+			String result = StringsUtil.sendPost1(entity.getBbinUrl() + BbinConstants.function.TRANSFER, param);
 			message.append(" 接口返回：").append(result).append("\n");
 			logger.info("bbin transfer siteId={},username={},result={}",entity.getSiteId(),transferParam.getUsername(),result);
 			JSONObject jsonMap = JSONObject.parseObject(result);
@@ -156,15 +161,17 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				this.login(loginParam);
 			}
 			//查询余额
-			String key = this.bbinKeyGenerate(BbinConstants.WEB_SITE, platformUser, BbinConstants.BALANCE_KEY, null, null);
-			logger.debug("{}, {}, {}, {}", BbinConstants.WEB_SITE, platformUser, entity.getAgent(), key);
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, platformUser, entity.getAgent(), key);
+			logger.debug("{}, {}",  platformUser, entity.getAgent());
+			BBinTransferVo vo = new BBinTransferVo(null, platformUser, entity.getAgent(), null);
 			String result = ReflectUtil.generateParam(vo);
-			message.append("请求地址：").append(BbinConstants.BBIN_URL + BbinConstants.function.QUERY_BALANCE).append("\n");
+			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
+			result=result+"&key="+key;
+			message.append("请求地址：").append(entity.getBbinUrl() + BbinConstants.function.QUERY_BALANCE).append("\n");
 			message.append("请求参数：").append(result).append("\n");
-			
+			logger.info("请求地址：{}",entity.getBbinUrl()+"\n");
+			logger.info("请求参数：{}",result+"\n");
 			long startTime = System.currentTimeMillis();
-			result = StringsUtil.sendPost1(BbinConstants.BBIN_URL + BbinConstants.function.QUERY_BALANCE, result);
+			result = StringsUtil.sendPost1(entity.getBbinUrl()+ BbinConstants.function.QUERY_BALANCE, result);
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result);
 			
@@ -236,9 +243,10 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			message.append("BBIN login 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername());
 			
-			String key = this.bbinKeyGenerate(BbinConstants.WEB_SITE, username, BbinConstants.LOGIN_KEY, 7, 5);
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, username, entity.getAgent(), entity.getPassword(), param.getLanguage(), param.getPageSite(), key);
+			BBinTransferVo vo = new BBinTransferVo(null, username, entity.getAgent(), entity.getPassword(), param.getLanguage(), param.getPageSite(), null);
 			result = ReflectUtil.generateParam(vo);
+			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
+			result=result+"&key="+key;
 			if("live".equals(param.getPageSite())){
 				result = result.concat("&page_present=live");
 			}
@@ -349,6 +357,11 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		return success("用户已经存在");
 	}
 
+	/**
+	 * 转账确认
+	 * @param param
+	 * @return
+	 */
 	@Override
 	public String queryStatusByBillno(QueryOrderStatusParam param) {
 		StringBuilder message = new StringBuilder();
@@ -359,13 +372,15 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			
 			message.append("BBIN queryStatusByBillno 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername());
-			
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, billno, queryOrderStatusKeyGenerate(BbinConstants.WEB_SITE, BbinConstants.CHECK_TRANSFER));
+
+			BBinTransferVo vo = new BBinTransferVo(null, billno, queryOrderStatusKeyGenerate(null, BbinConstants.CHECK_TRANSFER));
 			result = ReflectUtil.generateParam(vo);
+			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
+			result=result+"&key="+key;
 			
-			message.append("请求地址：").append(entity.getReportUrl()).append("\n");
+			message.append("请求地址：").append(entity.getBbinUrl()).append("\n");
 			message.append("请求参数：").append(result).append("\n");
-			result = StringsUtil.sendPost1(entity.getReportUrl() + BbinConstants.function.CHECK_TRANSFER, result);
+			result = StringsUtil.sendPost1(entity.getBbinUrl() + BbinConstants.function.CHECK_TRANSFER, result);
 			message.append("接口返回：").append(result).append("\n");
 			
 			JSONObject jsonMap = JSONObject.parseObject(result);

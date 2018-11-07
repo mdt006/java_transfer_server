@@ -247,9 +247,9 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			result = ReflectUtil.generateParam(vo);
 			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
 			result=result+"&key="+key;
-			if("live".equals(param.getPageSite())){
+			/*if("live".equals(param.getPageSite())){
 				result = result.concat("&page_present=live");
-			}
+			}*/
 			String loginUrl = StringsUtil.isNull(param.getLoginUrl()) != true ? param.getLoginUrl() : entity.getBbinUrl() + BbinConstants.function.LOGIN;
 			logger.info("登录请求参数={}, 登录请求地址={}",result,loginUrl);
 			result = StringsUtil.sendPost1(loginUrl, result);

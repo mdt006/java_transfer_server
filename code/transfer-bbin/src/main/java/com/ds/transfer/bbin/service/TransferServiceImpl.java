@@ -59,10 +59,10 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 
 	@Resource
 	private BbinApiUserEntityMapper bbinApiUserEntityMapper;
-	
+
 	@Autowired
 	protected RedisTemplate<String, String> redisTemplate;
-	
+
 	//小飞机消息组件
 	TelegramMessage telegramMessage = TelegramMessage.getInstance();
 
@@ -77,13 +77,13 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			String platformUser = entity.getPrefix().concat(transferParam.getUsername());
 			String type = transferParam.getType();
 			typeDes = IN.equals(type) ? "入" : "出";
-			
+
 			message.append("BBIN Transfer 站点：").append(entity.getSiteId());
 			message.append("会员：").append(transferParam.getUsername());
 			message.append(",转账：").append(transferParam.getType().equals("IN")==true ? "DS-->BBIN":"BBIN-->DS");
 			message.append(",单号:").append(transferParam.getBillno());
 			message.append(",金额：").append(transferParam.getCredit()).append("\n");
-			
+
 			//1.插入记录
 			bbinRecord = this.transferRecordService.insert(entity.getSiteId(), entity.getLiveId(), transferParam.getTransRecordId(), entity.getPassword(), transferParam.getUsername(), transferParam.getCredit(), transferParam.getBillno(),//
 					type, BbinConstants.BBIN, transferParam.getRemark(), bbinRecord);
@@ -112,10 +112,10 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				}
 			}
 			bbinRecord = this.transferRecordService.update(SysConstants.Record.TRANS_FAILURE, "BBIN转账失败", bbinRecord);
-			
+
 			message.insert("BBIN Transfer".length(),"转账异常！").append("\n");
 			telegramMessage.sendMessage(TelegramConstants.BOT_KEY,TelegramConstants.TG_ID,"transfer-bbin transfer",message.toString().replace("&", "*"));
-			
+
 			if (IN.equals(type)) {
 				logger.info("BBIN 转入失败,退回DS主账户");
 				transferParam.setRemark("BBIN 转入失败,退回DS主账户");
@@ -146,10 +146,10 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			ApiInfoEntity entity = param.getEntity();
 			String platformUser = entity.getPrefix().concat(param.getUsername());
-			
+
 			message.append("BBIN qeuryBalance 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername()).append("\n");
-			
+
 			BbinApiUserEntity user = this.queryUserExist(platformUser);
 			logger.info("查询本地是否存在此会员{}-->{},user={}",platformUser,user !=null?"已存在":"不存在走远程创建",user);
 			if(user == null){
@@ -174,7 +174,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			result = StringsUtil.sendPost1(entity.getBbinUrl()+ BbinConstants.function.QUERY_BALANCE, result);
 			long endTime = System.currentTimeMillis();
 			message.append("接口返回：").append(result);
-			
+
 			logger.info("bbin remote query balance site_id={},username={},耗时:[{}]毫秒 ,result={}",entity.getSiteId(),platformUser,(endTime-startTime),result);
 			JSONObject json = JSONObject.parseObject(result);
 			if (json.getBooleanValue("result")) {
@@ -190,7 +190,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 				return JSONUtils.map2Json(resultMap);
 			}
 			resultMap = failure(json.getJSONObject("data").getString("Message"));
-			
+
 			message.insert("BBIN qeuryBalance".length(),"查询余额异常！").append("\n");
 			telegramMessage.sendMessage(TelegramConstants.BOT_KEY,TelegramConstants.TG_ID,"transfer-bbin qeuryBalance",message.toString().replace("&","*"));
 		} catch (Exception e) {
@@ -202,25 +202,25 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		}
 		return JSONUtils.map2Json(resultMap);
 	}
-	
+
 	@Override
 	public String queryAgentBalance(QueryBalanceParam param) {
 		Map<String, Object> resultMap = null;
-		double balance = 0;  
+		double balance = 0;
 		try {
 			ApiInfoEntity entity = param.getEntity();
 			String agent = param.getAgent();
 			String siteId = String.valueOf(entity.getSiteId());
 			logger.info("bbin 查询redis缓存代理总额度 agent{}, siteId{}",agent,siteId);
 			Set<String> keys = this.redisTemplate.keys(entity.getLiveId()+"_"+siteId+"_*");
-			Iterator<String> it = keys.iterator();  
-	        while(it.hasNext()){  
-	            String siteUser = it.next();  
-	            String balanceStr = this.redisTemplate.opsForValue().get(siteUser);
-	            if(!StringsUtil.isNull(balanceStr)){
-	            	balance = BigDemicalUtil.add(balance,Double.valueOf(balanceStr),2);
-	            }
-	        }  
+			Iterator<String> it = keys.iterator();
+			while(it.hasNext()){
+				String siteUser = it.next();
+				String balanceStr = this.redisTemplate.opsForValue().get(siteUser);
+				if(!StringsUtil.isNull(balanceStr)){
+					balance = BigDemicalUtil.add(balance,Double.valueOf(balanceStr),2);
+				}
+			}
 			resultMap = success(String.valueOf(balance));
 			resultMap.put("balance", String.valueOf(balance));
 			return JSONUtils.map2Json(resultMap);
@@ -230,19 +230,19 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		}
 		return JSONUtils.map2Json(resultMap);
 	}
-	
+
 	@Override
 	public String login(LoginParam param) {
 		StringBuilder message = new StringBuilder();
 		String result = null;
-		
+
 		try {
 			ApiInfoEntity entity = param.getEntity();
 			String username = param.getUsername();
-			
+
 			message.append("BBIN login 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername());
-			
+
 			BBinTransferVo vo = new BBinTransferVo(null, username, entity.getAgent(), entity.getPassword(), param.getLanguage(), param.getPageSite(), null);
 			result = ReflectUtil.generateParam(vo);
 			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
@@ -255,7 +255,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			result = StringsUtil.sendPost1(loginUrl, result);
 			message.append("接口返回：").append(result).append("\n");
 			logger.info("siteId={},username：{},login bbin result:{}",entity.getSiteId(),username,result);
-			
+
 			if (result.contains("网站维护通知") || result.contains("System is in maintenance")
 					|| result.contains("SQL Error") || StringsUtil.isNull(result) || "ErrorCode".contains(result)) {
 				Map<String, Object> resultMap = new HashMap<String, Object>();
@@ -280,20 +280,25 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			ApiInfoEntity entity = param.getEntity();
 			String platformUser = entity.getPrefix().concat(param.getUsername());
-			
+
 			message.append("BBIN loginBySingGame 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername());
-			
-			String key = this.bbinKeyGenerate(BbinConstants.WEB_SITE, platformUser, BbinConstants.LOGIN_KEY, 7, 5);
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, platformUser, entity.getAgent(), entity.getPassword(), param.getLanguage(), key);
+
+//			String key = this.bbinKeyGenerate(BbinConstants.WEB_SITE, platformUser, BbinConstants.LOGIN_KEY, 7, 5);
+//			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, platformUser, entity.getAgent(), entity.getPassword(), param.getLanguage(), key);
 			String isFlash = param.getIsFlash();
-			String loginParam = ReflectUtil.generateParam(vo);
+			BBinTransferVo vo = new BBinTransferVo(null, param.getUsername(), entity.getAgent(), entity.getPassword(), param.getLanguage(), param.getPageSite(), null);
+			result = ReflectUtil.generateParam(vo);
+			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
+			result=result+"&key="+key;
+
+//			String loginParam = ReflectUtil.generateParam(vo);
 			String login2Url = StringsUtil.isNull(param.getLoginUrl()) != true ? param.getLoginUrl()+BbinConstants.function.LOGIN_SINGLE : entity.getBbinUrl() + BbinConstants.function.LOGIN_SINGLE;
 			message.append("请求地址：").append(login2Url).append("\n");
-			message.append("请求参数：").append(loginParam).append("\n");
-			result = StringsUtil.sendPost1(login2Url, loginParam);
+			message.append("请求参数：").append(result).append("\n");
+			result = StringsUtil.sendPost1(login2Url, result);
 			message.append("接口返回：").append(result).append("\n");
-			
+
 			if (result.contains("网站维护通知") || result.contains("System is in maintenance")) {
 				Map<String, Object> resultMap = new HashMap<String, Object>();
 				resultMap.put(STATUS, MAINTAIN);
@@ -369,7 +374,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 		try {
 			String billno = param.getBillno();
 			ApiInfoEntity entity = param.getEntity();
-			
+
 			message.append("BBIN queryStatusByBillno 站点：").append(entity.getSiteId());
 			message.append(",会员：").append(param.getUsername());
 
@@ -377,12 +382,12 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 			result = ReflectUtil.generateParam(vo);
 			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
 			result=result+"&key="+key;
-			
+
 			message.append("请求地址：").append(entity.getBbinUrl()).append("\n");
 			message.append("请求参数：").append(result).append("\n");
 			result = StringsUtil.sendPost1(entity.getBbinUrl() + BbinConstants.function.CHECK_TRANSFER, result);
 			message.append("接口返回：").append(result).append("\n");
-			
+
 			JSONObject jsonMap = JSONObject.parseObject(result);
 			if (!jsonMap.getBooleanValue("result")) {
 				message.insert("BBIN queryStatusByBillno".length(),"查询订单异常！").append("\n");
@@ -415,9 +420,11 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	private String playGame(ApiInfoEntity entity, String username, String password, String gamekind, String gametype, String gamecode, String lang,String loginUrl,String isFlash) {
 		String result = "";
 		try {
-			String key = this.bbinKeyGenerate(BbinConstants.WEB_SITE, username, BbinConstants.PLAY_GAME_KEY, 5, 8);
-			BBinTransferVo vo = new BBinTransferVo(BbinConstants.WEB_SITE, username,entity.getAgent(),password,gamekind, gametype, gamecode, lang, key);
-			String param = ReflectUtil.generateParam(vo);
+			BBinTransferVo vo = new BBinTransferVo(null, username,entity.getAgent(),password,gamekind, gametype, gamecode, lang, null);
+			result = ReflectUtil.generateParam(vo);
+			String key = EncryptUtils.encrypt(result, BBINUtils.USERKEY);
+
+			result=result+"&key="+key;
 			if(StringsUtil.isNull(loginUrl)){
 				if("0".equals(isFlash)){
 					loginUrl = entity.getBbinUrl() + BbinConstants.function.PLAY_GAME;
@@ -431,7 +438,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 					loginUrl = loginUrl + BbinConstants.function.H5_GAME;
 				}
 			}
-			result = loginUrl + "?" + param;
+			result = loginUrl + "?" + result;
 			logger.info("bbin playGame siteId={},username={},gamekind={},gameType={},result={}",
 					entity.getSiteId(),username,gamekind,gametype,result);
 			return result;
@@ -473,7 +480,7 @@ public class TransferServiceImpl extends CommonTransferService implements Transf
 	}
 
 	/**
-	 * 查询 bbin 生成key 
+	 * 查询 bbin 生成key
 	 */
 	private String bbinKeyGenerate(String website, String agent, String key, Integer start, Integer end) {
 		start = start == null ? 1 : start;

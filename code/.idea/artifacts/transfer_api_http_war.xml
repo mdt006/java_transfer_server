@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="transfer-api-http:war">
+    <output-path>$PROJECT_DIR$/transfer-api-http/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>transfer-api-http</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="transfer-api-http-0.0.1.war">
+      <element id="artifact" artifact-name="transfer-api-http:war exploded" />
+    </root>
+  </artifact>
+</component>

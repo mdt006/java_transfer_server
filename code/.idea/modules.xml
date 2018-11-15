@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/transfer-ag/transfer-ag.iml" filepath="$PROJECT_DIR$/transfer-ag/transfer-ag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-api-http/transfer-api-http.iml" filepath="$PROJECT_DIR$/transfer-api-http/transfer-api-http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-bbin/transfer-bbin.iml" filepath="$PROJECT_DIR$/transfer-bbin/transfer-bbin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-common/transfer-common.iml" filepath="$PROJECT_DIR$/transfer-common/transfer-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-h8/transfer-h8.iml" filepath="$PROJECT_DIR$/transfer-h8/transfer-h8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-ky/transfer-ky.iml" filepath="$PROJECT_DIR$/transfer-ky/transfer-ky.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-lmg/transfer-lmg.iml" filepath="$PROJECT_DIR$/transfer-lmg/transfer-lmg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-money/transfer-money.iml" filepath="$PROJECT_DIR$/transfer-money/transfer-money.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-parent.iml" filepath="$PROJECT_DIR$/transfer-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-scan/transfer-scan.iml" filepath="$PROJECT_DIR$/transfer-scan/transfer-scan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-sgs/transfer-sgs.iml" filepath="$PROJECT_DIR$/transfer-sgs/transfer-sgs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-support/transfer-support.iml" filepath="$PROJECT_DIR$/transfer-support/transfer-support.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transfer-lotto_xiaoyu/transfer-xiaoyu.iml" filepath="$PROJECT_DIR$/transfer-lotto_xiaoyu/transfer-xiaoyu.iml" />
+    </modules>
+  </component>
+</project>

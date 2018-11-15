@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f379f6cf-ee3f-4460-ae9b-09d61710da90" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/transfer-ag/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-support/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-bbin/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-scan/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-lmg/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-api-http/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-money/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-h8/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-common/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-lotto_xiaoyu/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-sgs/target/" />
+    <ignored path="$PROJECT_DIR$/transfer-ky/target/" />
+    <ignored path="../.idea/misc.xml" />
+    <ignored path="../.idea/vcs.xml" />
+    <ignored path="../.idea/workspace.xml" />
+    <ignored path="transfer-ag/transfer-ag.iml" />
+    <ignored path="transfer-api-http/transfer-api-http.iml" />
+    <ignored path="transfer-bbin/transfer-bbin.iml" />
+    <ignored path="transfer-common/transfer-common.iml" />
+    <ignored path="transfer-h8/transfer-h8.iml" />
+    <ignored path="transfer-ky/transfer-ky.iml" />
+    <ignored path="transfer-lmg/transfer-lmg.iml" />
+    <ignored path="transfer-money/transfer-money.iml" />
+    <ignored path=".idea/artifacts/transfer_api_http_war.xml" />
+    <ignored path=".idea/artifacts/transfer_api_http_war_exploded.xml" />
+    <ignored path=".idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+    <ignored path=".idea/libraries/Maven__ch_qos_logback_logback_classic_1_0_9.xml" />
+    <ignored path=".idea/libraries/Maven__ch_qos_logback_logback_core_1_0_9.xml" />
+    <ignored path=".idea/libraries/Maven__com_alibaba_druid_1_1_5.xml" />
+    <ignored path=".idea/libraries/Maven__com_alibaba_dubbo_2_5_4.xml" />
+    <ignored path=".idea/libraries/Maven__com_alibaba_fastjson_1_2_28.xml" />
+    <ignored path=".idea/libraries/Maven__com_baidu_disconf_disconf_client_2_6_2.xml" />
+    <ignored path=".idea/libraries/Maven__com_baidu_disconf_disconf_core_2_5_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_ds_ds_telegram_notice_1_0_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_5.xml" />
+    <ignored path=".idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1_3.xml" />
+    <ignored path=".idea/libraries/Maven__com_github_sgroschupf_zkclient_0_1.xml" />
+    <ignored path=".idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
+    <ignored path=".idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" />
+    <ignored path=".idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_0_18.xml" />
+    <ignored path=".idea/libraries/Maven__com_google_guava_guava_23_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" />
+    <ignored path=".idea/libraries/Maven__com_ibm_icu_icu4j_2_6_1.xml" />
+    <ignored path=".idea/libraries/Maven__com_opencsv_opencsv_4_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_sun_mail_javax_mail_1_5_0.xml" />
+    <ignored path=".idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_8.xml" />
+    <ignored path=".idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" />
+    <ignored path=".idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" />
+    <ignored path=".idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" />
+    <ignored path=".idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" />
+    <ignored path=".idea/libraries/Maven__commons_io_commons_io_1_4.xml" />
+    <ignored path=".idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" />
+    <ignored path=".idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
+    <ignored path=".idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+    <ignored path=".idea/libraries/Maven__io_netty_netty_3_7_0_Final.xml" />
+    <ignored path=".idea/libraries/Maven__javax_activation_activation_1_1.xml" />
+    <ignored path=".idea/libraries/Maven__javax_annotation_javax_annotation_api_1_2_b02.xml" />
+    <ignored path=".idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
+    <ignored path=".idea/libraries/Maven__javax_javaee_api_7_0.xml" />
+    <ignored path=".idea/libraries/Maven__javax_mail_mail_1_4_7.xml" />
+    <ignored path=".idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_0_rc1.xml" />
+    <ignored path=".idea/libraries/Maven__jaxen_jaxen_1_1_1.xml" />
+    <ignored path=".idea/libraries/Maven__jdom_jdom_1_0.xml" />
+    <ignored path=".idea/libraries/Maven__jline_jline_0_9_94.xml" />
+    <ignored path=".idea/libraries/Maven__junit_junit_4_5.xml" />
+    <ignored path=".idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
+    <ignored path=".idea/libraries/Maven__mybatis_mybatis_extend_1_0_1.xml" />
+    <ignored path=".idea/libraries/Maven__mysql_mysql_connector_java_5_1_30.xml" />
+    <ignored path=".idea/libraries/Maven__onetwo_onetwo_common_1_5_0.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_commons_commons_pool2_2_3.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_commons_commons_text_1_1.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_4_1.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_1.xml" />
+    <ignored path=".idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_6.xml" />
+    <ignored path=".idea/libraries/Maven__org_aspectj_aspectjtools_1_7_4.xml" />
+    <ignored path=".idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_0.xml" />
+    <ignored path=".idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_4.xml" />
+    <ignored path=".idea/libraries/Maven__org_codehaus_jackson_jackson_jaxrs_1_9_8.xml" />
+    <ignored path=".idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_4.xml" />
+    <ignored path=".idea/libraries/Maven__org_codehaus_jackson_jackson_xc_1_9_8.xml" />
+    <ignored path=".idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_external_asm_all_repackaged_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_external_cglib_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_external_javax_inject_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_hk2_api_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_hk2_locator_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_hk2_utils_2_1_64.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_hk2_osgi_resource_locator_1_0_1.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_jersey_core_jersey_client_2_0_m13.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_jersey_core_jersey_common_2_0_m13.xml" />
+    <ignored path=".idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_json_jackson_2_0_m13.xml" />
+    <ignored path=".idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" />
+    <ignored path=".idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" />
+    <ignored path=".idea/libraries/Maven__org_mybatis_mybatis_3_2_7.xml" />
+    <ignored path=".idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_2.xml" />
+    <ignored path=".idea/libraries/Maven__org_reflections_reflections_0_9_9_RC1.xml" />
+    <ignored path=".idea/libraries/Maven__org_slf4j_slf4j_api_1_7_5.xml" />
+    <ignored path=".idea/libraries/Maven__org_slf4j_slf4j_api_1_7_6.xml" />
+    <ignored path=".idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_7.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_data_spring_data_redis_1_3_0_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_aop_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_aspects_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_beans_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_context_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_context_support_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_core_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_expression_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_instrument_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_instrument_tomcat_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_jdbc_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_jms_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_orm_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_oxm_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_tx_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_web_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__org_springframework_spring_webmvc_4_0_4_RELEASE.xml" />
+    <ignored path=".idea/libraries/Maven__redis_clients_jedis_2_4_2.xml" />
+    <ignored path=".idea/libraries/Maven__xalan_xalan_2_6_0.xml" />
+    <ignored path=".idea/libraries/Maven__xerces_xercesImpl_2_6_2.xml" />
+    <ignored path=".idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml" />
+    <ignored path=".idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" />
+    <ignored path=".idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" />
+    <ignored path=".idea/libraries/Maven__xom_xom_1_0.xml" />
+    <ignored path=".idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" />
+    <ignored path=".idea/libraries/Maven__yooyo_yooyo_utils_1_0_0.xml" />
+    <ignored path=".idea/.name" />
+    <ignored path=".idea/compiler.xml" />
+    <ignored path=".idea/encodings.xml" />
+    <ignored path=".idea/misc.xml" />
+    <ignored path=".idea/modules.xml" />
+    <ignored path="transfer-parent.iml" />
+    <ignored path="transfer-scan/transfer-scan.iml" />
+    <ignored path="transfer-sgs/transfer-sgs.iml" />
+    <ignored path="transfer-support/transfer-support.iml" />
+    <ignored path="transfer-lotto_xiaoyu/transfer-xiaoyu.iml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/controller/TransferControllerNew.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="279" column="26" lean-forward="true" selection-start-line="279" selection-start-column="26" selection-end-line="279" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5941#5957#0" expanded="true" />
+                <element signature="e#18263#18279#0" expanded="true" />
+                <element signature="e#22367#22383#0" expanded="true" />
+                <element signature="e#39481#39497#0" expanded="true" />
+                <element signature="e#42112#42128#0" expanded="true" />
+                <element signature="e#44659#44675#0" expanded="true" />
+                <element signature="e#46339#46355#0" expanded="true" />
+                <element signature="e#48794#48810#0" expanded="true" />
+                <element signature="e#50747#50771#0" expanded="true" />
+                <element signature="e#55456#55457#0" expanded="true" />
+                <element signature="e#55516#55517#0" expanded="true" />
+                <element signature="e#55555#55556#0" expanded="true" />
+                <element signature="e#55608#55609#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/jdbc.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>101.20.0.5</find>
+      <find>selectByExample</find>
+      <find>live isn't process way</find>
+      <find>generateMoneyKey</find>
+      <find>transMethod</find>
+      <find>moneyCenterService</find>
+      <find>agTransferService</find>
+      <find>transferRecordService</find>
+      <find>agent</find>
+      <find>10.200.201.25</find>
+      <find>checkAndCreateMember</find>
+      <find>loginBySingGame</find>
+      <find>playGame</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>100.100.0.230</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="dev" />
+      </map>
+    </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="test" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/transfer-ky/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/transfer-ky/src/main/java/com/ds/transfer/ky/main/Main.java" />
+        <option value="$PROJECT_DIR$/transfer-sgs/pom.xml" />
+        <option value="$PROJECT_DIR$/transfer-sgs/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/transfer-sgs/src/main/resources/log4j.properties" />
+        <option value="E:/项目/07Game/Game3.0/opp/src/main/resources/config/dao/jpa-config.xml" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/transfer-money/src/main/java/com/ds/transfer/money/util/PropsUtil.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/pom.xml" />
+        <option value="D:/tools/apache-maven-3.5.2/junit/junit/4.12/junit-4.12.pom" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/test/com/ds/money/service/GetKey.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/test/com/ds/money/service/TestMoneyAPI.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/pom.xml" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/java/com/ds/money/service/MemberMoneyServiceImp.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/java/com/ds/money/controller/MemberMoneyController.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/java/com/ds/money/service/TransThreadService.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/test/com/ds/money/service/TestMoneyAPI.java" />
+        <option value="$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/common/vo/TransferParam.java" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/controller/TransferControllerNew.java" />
+        <option value="$PROJECT_DIR$/transfer-common/pom.xml" />
+        <option value="$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/constants/BbinConstants.java" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/service/impl/BbinTransferServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/pull_bet_kg-jd-lottery/src/main/java/com/ds/lottery/service/HandLotteryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../../WebSite.APP.H5/package.json" />
+        <option value="$PROJECT_DIR$/../../java_report_server/task_kg-total-report/src/main/java/com/ds/live/thread/ReportThread.java" />
+        <option value="$PROJECT_DIR$/../../WebSite.APP.H5/config/index.js" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/test/com/ds/money/service/Test1.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/java/com/ds/money/test/Test1.java" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/resources/activemq.xml" />
+        <option value="$PROJECT_DIR$/../../java_report_server/task_kg-total-report/src/main/java/com/ds/live/task/StartTask.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/pull_bet_kg-h8-sport/src/main/conf/beta/log4j.properties" />
+        <option value="$PROJECT_DIR$/../../java_report_server/pull_bet_kg-bbin-live/src/main/java/com/ds/live/task/PullBetScanistor.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/src/main/conf/beta/siteConfig-base.properties" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/src/main/java/com/ds/report/service/DsReportHproseService.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/src/main/conf/beta/jdbc.properties" />
+        <option value="$PROJECT_DIR$/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-support/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-money/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-bbin/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/resources/dubbo.properties" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-api-http/src/main/resources/applicationContext-consumer.xml" />
+        <option value="$PROJECT_DIR$/transfer-ag/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-h8/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-ky/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/transfer-lmg/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/../../ds-money-api/ds-money-api-v4/src/main/test/com/ds/money/service/GetKey.java" />
+        <option value="$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/service/Login2.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/src/test/com/ds/report/ervice/SocketClient.java" />
+        <option value="$PROJECT_DIR$/../../java_report_server/dsreport/src/main/java/com/ds/report/service/DsReportServiceImpl.java" />
+        <option value="$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/service/TransferServiceImpl.java" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/tools/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\tools\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="transfer-ag" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="transfer-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="transfer-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="354" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="transfer-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="transfer-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="transfer-support" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="transfer-parent" type="58d84e3e:PackageViewProjectNode" />
+              <item name="transfer-support" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="transfer-parent" type="58d84e3e:PackageViewProjectNode" />
+              <item name="transfer-support" type="616d4139:PackageViewModuleNode" />
+              <item name="com.ds.transfer.record.main" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542254988591" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../mdtjava" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/transfer-support/src" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-bbin\src\main\java\com\ds\transfer\bbin\service" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-sgs\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-scan\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-lotto_xiaoyu\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-ky\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-sgs\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-ky\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-scan\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-lmg\src\main\resources" />
+      <recent name="E:\IdeaProjects\java_transfer_server\code\transfer-h8\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.transfer-api-http">
+    <configuration name="transfer-ag" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.ag.main.Main" />
+      <module name="transfer-ag" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-ag" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-bbin" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.bbin.main.Main" />
+      <module name="transfer-bbin" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-bbin" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-h8" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.h8.main.Main" />
+      <module name="transfer-h8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-h8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-ky" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.ky.main.Main" />
+      <module name="transfer-ky" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-ky" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-lmg" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.lmg.main.Main" />
+      <module name="transfer-lmg" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-lmg" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-lotto_xiaoyu" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.xiaoyu.main.Main" />
+      <module name="transfer-xiaoyu" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-lotto_xiaoyu" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-money" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.money.main.Main" />
+      <module name="transfer-money" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-money" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="transfer-support" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.ds.transfer.record.main.Main" />
+      <module name="transfer-support" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transfer-support" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="jar" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/transfer-support/target/transfer-support-0.0.1.jar" />
+      <option name="WORKING_DIRECTORY" value="E:\IdeaProjects\java_transfer_server\code\transfer-support" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <module name="transfer-support" />
+      <method v="2" />
+    </configuration>
+    <configuration name="transfer-api-http" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.28" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <file path="$PROJECT_DIR$/transfer-api-http/target/transfer-api-http-0.0.1.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_transfer-parent" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="63569" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.transfer-h8" />
+      <item itemvalue="Application.transfer-ky" />
+      <item itemvalue="Application.transfer-support" />
+      <item itemvalue="Application.transfer-ag" />
+      <item itemvalue="Application.transfer-lmg" />
+      <item itemvalue="Application.transfer-bbin" />
+      <item itemvalue="Application.transfer-money" />
+      <item itemvalue="Application.transfer-lotto_xiaoyu" />
+      <item itemvalue="JAR Application.jar" />
+      <item itemvalue="Tomcat Server.transfer-api-http" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f379f6cf-ee3f-4460-ae9b-09d61710da90" name="Default Changelist" comment="" />
+      <created>1540287388123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540287388123</updated>
+      <workItem from="1540287393205" duration="27882000" />
+      <workItem from="1540452023412" duration="24251000" />
+      <workItem from="1540779186846" duration="57331000" />
+      <workItem from="1541219959176" duration="24397000" />
+      <workItem from="1541664043465" duration="9456000" />
+      <workItem from="1542095610634" duration="17145000" />
+      <workItem from="1542189816076" duration="3182000" />
+    </task>
+    <task id="LOCAL-00001" summary="eason 测试">
+      <created>1540372354403</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540372354403</updated>
+    </task>
+    <task id="LOCAL-00002" summary="eason 测试">
+      <created>1540372581247</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540372581247</updated>
+    </task>
+    <task id="LOCAL-00003" summary="eason 测试11">
+      <created>1540374601027</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540374601027</updated>
+    </task>
+    <task id="LOCAL-00004" summary="数据库配置更新">
+      <created>1540374716114</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540374716114</updated>
+    </task>
+    <task id="LOCAL-00005" summary="数据库配置更新">
+      <created>1540375457691</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1540375457691</updated>
+    </task>
+    <task id="LOCAL-00006" summary="测试环境 配置更新">
+      <created>1540442172818</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1540442172818</updated>
+    </task>
+    <task id="LOCAL-00007" summary="测试环境 配置更新">
+      <created>1540450363629</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1540450363629</updated>
+    </task>
+    <task id="LOCAL-00008" summary="测试环境 配置更新">
+      <created>1540453179153</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1540453179153</updated>
+    </task>
+    <task id="LOCAL-00009" summary="测试环境 配置更新">
+      <created>1540455895954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1540455895954</updated>
+    </task>
+    <task id="LOCAL-00010" summary="测试环境 配置更新">
+      <created>1540458090556</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1540458090556</updated>
+    </task>
+    <task id="LOCAL-00011" summary="测试环境:经典彩 xiaoyu项目配置更新">
+      <created>1540785543349</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1540785543349</updated>
+    </task>
+    <task id="LOCAL-00012" summary="测试环境:开启经典彩HTTP消费 xiaoyu项目配置更新">
+      <created>1540785977703</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1540785977703</updated>
+    </task>
+    <task id="LOCAL-00013" summary="测试环境:经典彩 xiaoyu项目配置更新">
+      <created>1540786427042</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1540786427042</updated>
+    </task>
+    <task id="LOCAL-00014" summary="测试环境:经典彩 xiaoyu项目配置更新">
+      <created>1540786596669</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540786596669</updated>
+    </task>
+    <task id="LOCAL-00015" summary="测试环境:经典彩 xiaoyu项目配置更新">
+      <created>1540786786875</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540786786875</updated>
+    </task>
+    <task id="LOCAL-00016" summary="测试环境:经典彩 xiaoyu项目配置更新">
+      <created>1540793470612</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540793470612</updated>
+    </task>
+    <task id="LOCAL-00017" summary="测试环境:修复yefeng环境配置还原">
+      <created>1540888931930</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1540888931930</updated>
+    </task>
+    <task id="LOCAL-00018" summary="测试环境:修复yefeng环境配置还原">
+      <created>1540894052235</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1540894052235</updated>
+    </task>
+    <task id="LOCAL-00019" summary="测试环境:修复yefeng环境配置 money类路径配置">
+      <created>1540980396904</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1540980396905</updated>
+    </task>
+    <task id="LOCAL-00020" summary="测试环境:修复yefeng环境配置 dubbo的调度时间配置">
+      <created>1541503118523</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1541503118523</updated>
+    </task>
+    <task id="LOCAL-00021" summary="测试环境:修复BBIN单游戏不能登录的问题；方法更新playGame()、loginBySingGame()；key算法">
+      <created>1542182562151</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1542182562151</updated>
+    </task>
+    <task id="LOCAL-00022" summary="测试环境:修复BBIN单游戏不能登录的问题；方法更新playGame()、loginBySingGame()；key算法">
+      <created>1542185347010</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1542185347010</updated>
+    </task>
+    <task id="LOCAL-00023" summary="测试环境:修复BBIN单游戏不能登录的问题；方法更新playGame()、loginBySingGame()；key算法">
+      <created>1542186360545</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1542186360545</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="163644000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Web" order="4" side_tool="true" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.20309168" />
+      <window_info anchor="bottom" id="Spring" order="0" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49840087" weight="0.6822126" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="8" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.28741866" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.28416485" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="14" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="JSF" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="CDI" order="6" />
+      <window_info anchor="right" id="Bean Validation" order="7" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="8" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="11" visible="true" weight="0.21588486" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="eason 测试" />
+    <MESSAGE value="eason 测试11" />
+    <MESSAGE value="数据库配置更新" />
+    <MESSAGE value="测试环境 配置更新" />
+    <MESSAGE value="测试环境:开启经典彩HTTP消费 xiaoyu项目配置更新" />
+    <MESSAGE value="测试环境:经典彩 xiaoyu项目配置更新" />
+    <MESSAGE value="测试环境:修复yefeng环境配置还原" />
+    <MESSAGE value="测试环境:修复yefeng环境配置 money类路径配置" />
+    <MESSAGE value="测试环境:修复yefeng环境配置 dubbo的调度时间配置" />
+    <MESSAGE value="测试环境:修复BBIN单游戏不能登录的问题；方法更新playGame()、loginBySingGame()；key算法" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试环境:修复BBIN单游戏不能登录的问题；方法更新playGame()、loginBySingGame()；key算法" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/controller/TransferControllerNew.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="record" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>StringsUtil.sendPost1(login2Url, result)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>StringsUtil.sendPost1(login2Url, loginParam)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.bbinTransferService.loginBySingGame(loginParam)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>StringsUtil.sendPost1(AgConstants.AG_URL + AgConstants.BUSINESS_FUNCTION, params)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.agTransfer.transfer(param)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.bbinTransfer.transfer(param)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>moneyCenter</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>transferService.transfer(param)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>entity.getReportUrl() + BbinConstants.function.TRANSFER</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/resources/applicationContext-consumer.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/resources/applicationContext-provider.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/applicationContext-consumer.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/applicationContext-provider.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/generatorConfig-agUser.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/java/com/ds/transfer/ag/constants/AgConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-support/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-support/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-money/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-support/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-support/src/main/resources/applicationContext-provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/transfer.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/ag.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ag/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-h8/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-ky/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-lmg/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-lotto_xiaoyu/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-scan/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-sgs/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/applicationContext-consumer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/service/BbinTransferService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/tools/apache-maven-3.5.2/org/springframework/spring-core/4.0.4.RELEASE/spring-core-4.0.4.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/util/BBINUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/util/EncryptUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/common/util/ReflectUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="53" />
+          <folding>
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/common/service/CommonTransferService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/service/Login2.java" />
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/service/ApiInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/dubbo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="102" selection-start-line="13" selection-start-column="102" selection-end-line="13" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/service/impl/BbinTransferServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/common/vo/LoginParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/vo/BBinTransferVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="87" column="25" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/record/entity/ApiInfoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14980">
+          <caret line="835" column="18" selection-start-line="835" selection-start-column="18" selection-end-line="835" selection-end-column="18" />
+          <folding>
+            <element signature="e#24001#24002#0" expanded="true" />
+            <element signature="e#24031#24032#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-common/src/main/java/com/ds/transfer/common/service/TransferService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/constants/BbinConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/controller/TransferController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-bbin/src/main/java/com/ds/transfer/bbin/service/TransferServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-339">
+          <caret line="413" column="33" selection-start-line="413" selection-start-column="33" selection-end-line="413" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/java/com/ds/transfer/http/controller/TransferControllerNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="279" column="26" lean-forward="true" selection-start-line="279" selection-start-column="26" selection-end-line="279" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5941#5957#0" expanded="true" />
+            <element signature="e#18263#18279#0" expanded="true" />
+            <element signature="e#22367#22383#0" expanded="true" />
+            <element signature="e#39481#39497#0" expanded="true" />
+            <element signature="e#42112#42128#0" expanded="true" />
+            <element signature="e#44659#44675#0" expanded="true" />
+            <element signature="e#46339#46355#0" expanded="true" />
+            <element signature="e#48794#48810#0" expanded="true" />
+            <element signature="e#50747#50771#0" expanded="true" />
+            <element signature="e#55456#55457#0" expanded="true" />
+            <element signature="e#55516#55517#0" expanded="true" />
+            <element signature="e#55555#55556#0" expanded="true" />
+            <element signature="e#55608#55609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer-api-http/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>transfer-api-http:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>transfer-common</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

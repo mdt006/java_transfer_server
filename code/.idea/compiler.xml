@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="transfer-ag" />
+        <module name="transfer-api-http" />
+        <module name="transfer-bbin" />
+        <module name="transfer-common" />
+        <module name="transfer-h8" />
+        <module name="transfer-ky" />
+        <module name="transfer-lmg" />
+        <module name="transfer-money" />
+        <module name="transfer-scan" />
+        <module name="transfer-sgs" />
+        <module name="transfer-support" />
+        <module name="transfer-xiaoyu" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="transfer-ag" target="1.8" />
+      <module name="transfer-api-http" target="1.8" />
+      <module name="transfer-bbin" target="1.8" />
+      <module name="transfer-common" target="1.8" />
+      <module name="transfer-h8" target="1.8" />
+      <module name="transfer-ky" target="1.8" />
+      <module name="transfer-lmg" target="1.8" />
+      <module name="transfer-money" target="1.8" />
+      <module name="transfer-parent" target="1.8" />
+      <module name="transfer-scan" target="1.8" />
+      <module name="transfer-sgs" target="1.8" />
+      <module name="transfer-support" target="1.8" />
+      <module name="transfer-xiaoyu" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
